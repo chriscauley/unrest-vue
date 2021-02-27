@@ -24,6 +24,7 @@ const toast = (text) => addToast({ text, level: 'info' })
 
 toast.add = addToast
 toast.hide = hideToast
+toast.LEVELS = LEVELS
 LEVELS.forEach((level) => (toast[level] = (text) => addToast({ level, text })))
 
 const alert = (message) => (state.alert = message)

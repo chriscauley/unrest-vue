@@ -2578,6 +2578,7 @@ var store_toast = function toast(text) {
 
 store_toast.add = addToast;
 store_toast.hide = hideToast;
+store_toast.LEVELS = LEVELS;
 LEVELS.forEach(function (level) {
   return store_toast[level] = function (text) {
     return addToast({
@@ -2601,9 +2602,9 @@ var store_confirm = function confirm(_confirm) {
   confirm: store_confirm,
   state: state
 });
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader-v16/dist/templateLoader.js??ref--6!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader-v16/dist??ref--0-1!./src/ui/Component.vue?vue&type=template&id=02dc34a8
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader-v16/dist/templateLoader.js??ref--6!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader-v16/dist??ref--0-1!./src/ui/Component.vue?vue&type=template&id=7bbef5f7
 
-var Componentvue_type_template_id_02dc34a8_hoisted_1 = {
+var Componentvue_type_template_id_7bbef5f7_hoisted_1 = {
   class: "toast-list"
 };
 var _hoisted_2 = {
@@ -2625,11 +2626,11 @@ var _hoisted_5 = {
 var _hoisted_6 = {
   class: "modal-footer"
 };
-function Componentvue_type_template_id_02dc34a8_render(_ctx, _cache, $props, $setup, $data, $options) {
-  return Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])(external_commonjs_vue_commonjs2_vue_root_Vue_["Fragment"], null, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", Componentvue_type_template_id_02dc34a8_hoisted_1, [(Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(true), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])(external_commonjs_vue_commonjs2_vue_root_Vue_["Fragment"], null, Object(external_commonjs_vue_commonjs2_vue_root_Vue_["renderList"])($options.toasts, function (toast) {
+function Componentvue_type_template_id_7bbef5f7_render(_ctx, _cache, $props, $setup, $data, $options) {
+  return Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])(external_commonjs_vue_commonjs2_vue_root_Vue_["Fragment"], null, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", Componentvue_type_template_id_7bbef5f7_hoisted_1, [(Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(true), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])(external_commonjs_vue_commonjs2_vue_root_Vue_["Fragment"], null, Object(external_commonjs_vue_commonjs2_vue_root_Vue_["renderList"])($options.toasts, function (toast) {
     return Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])("div", {
       key: toast.id,
-      class: "toast -".concat(toast.level)
+      class: "toast ".concat(toast.level)
     }, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", _hoisted_2, Object(external_commonjs_vue_commonjs2_vue_root_Vue_["toDisplayString"])(toast.text), 1), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("i", {
       class: "fa fa-close",
       onClick: function onClick($event) {
@@ -2651,7 +2652,7 @@ function Componentvue_type_template_id_02dc34a8_render(_ctx, _cache, $props, $se
     })
   }, "Ok")])])])) : Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createCommentVNode"])("", true)], 64);
 }
-// CONCATENATED MODULE: ./src/ui/Component.vue?vue&type=template&id=02dc34a8
+// CONCATENATED MODULE: ./src/ui/Component.vue?vue&type=template&id=7bbef5f7
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.array.filter.js
 var es_array_filter = __webpack_require__("4de4");
@@ -2711,7 +2712,7 @@ var noop = function noop() {};
 
 
 
-Componentvue_type_script_lang_js.render = Componentvue_type_template_id_02dc34a8_render
+Componentvue_type_script_lang_js.render = Componentvue_type_template_id_7bbef5f7_render
 
 /* harmony default export */ var Component = (Componentvue_type_script_lang_js);
 // CONCATENATED MODULE: ./src/ui/index.js

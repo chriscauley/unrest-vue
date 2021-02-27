@@ -4,8 +4,29 @@
   left: 50%;
   transform: translate(-50%, 0);
   .toast {
-    padding: 4px;
-    background: #eee;
+    background: white;
     border: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    min-width: 400px;
+    padding: 8px;
+    &.error {
+      background: rgb(252, 165, 165);
+    }
+    &.info {
+      background: rgb(191, 219, 254);
+    }
+    &.success {
+      background-color: rgb(167, 243, 208);
+    }
+    &.todo {
+      background-color: rgb(253, 230, 138);
+    }
+    &.warn {
+      background-color: rgb(253, 230, 138);
+    }
+    .fa.fa-close {
+      cursor: pointer;
+    }
   }
 }
