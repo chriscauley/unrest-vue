@@ -9,7 +9,6 @@ const devServer = {
 module.exports = {
   lintOnSave: false,
   devServer,
-  publicPath: '/unrest-vue',
   configureWebpack: {
     resolve: {
       alias: {
@@ -17,4 +16,8 @@ module.exports = {
       },
     },
   },
+}
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports.publicPath = '/unrest-vue'
 }
