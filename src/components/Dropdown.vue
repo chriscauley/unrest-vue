@@ -1,10 +1,16 @@
 <template>
-  <div @click="toggleFocus">
+  <div @click="toggleFocus" class="ur-dropdown">
     <slot />
     <ur-popper v-if="focused" class="popdown">
       <slot name="content">
-        <div class="flex flex-col" v-if="items?.length">
-          <div v-for="item in preppedItems" v-bind="item.attrs" v-is="item.tagName" :key="item.key">
+        <div class="dropdown-items" v-if="items?.length">
+          <div
+            class="dropdown-item"
+            v-for="item in preppedItems"
+            v-bind="item.attrs"
+            v-is="item.tagName"
+            :key="item.key"
+            >
             <i v-if="item.icon" :class="`fa fa-${item.icon}`" />
             {{ item.text }}
           </div>
@@ -27,6 +33,10 @@ const prepItem = (item) => {
   if (item.to) {
     item.attrs.to = item.to
     item.tagName = 'router-link'
+  }
+  if (item.href) {
+    item.attrs.href = item.href
+    item.tagName = 'a'
   }
   if (item.click) {
     item.attrs.onclick = item.click
