@@ -3,7 +3,9 @@
     <div class="main-nav">
     </div>
     <div>
-      <button @click="doToast">toast!</button>
+      <button v-for="level in toast_levels" @click="doToast(level)" :key="level">
+        Toast {{ level }}
+      </button>
     </div>
     <ur-ui />
   </div>
@@ -15,9 +17,12 @@ import { ui } from '@unrest/vue'
 export default {
   name: 'App',
   components: { 'ur-ui': ui.Component },
+  data() {
+    return { toast_levels: ui.toast.LEVELS }
+  },
   methods: {
-    doToast() {
-      ui.toast('bees!')
+    doToast(level) {
+      ui.toast[level](`This is a ${level} toast.`)
     }
   }
 }
