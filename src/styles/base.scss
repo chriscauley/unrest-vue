@@ -1,0 +1,11 @@
+.toast-list {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  .toast {
+    padding: 4px;
+    background: #eee;
+    border: 1px solid #ccc;
+  }
+}

@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { ui } from '../../src/index'
+import { ui } from '@unrest/vue'
 
 export default {
   name: 'App',
