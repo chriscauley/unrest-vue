@@ -9,12 +9,15 @@
   </div>
   <div v-if="alert" class="modal">
     <div class="modal-mask" @click="closeAlert" />
-    <div class="modal-content" style="min-width: 400px">
-      <h2 v-if="alert.heading">
+    <div class="modal-content">
+      <h2 v-if="alert.title" class="modal-title">
         <i :class="`fa fa-${alert.icon}`" v-if="alert.icon" />
-        {{ alert.heading }}
+        {{ alert.title }}
       </h2>
-      {{ alert.text }}
+      <div class="modal-body">
+        <i :class="`fa fa-${alert.icon}`" v-if="alert.icon && !alert.title" />
+        {{ alert.text }}
+      </div>
       <div class="modal-footer">
         <button class="btn btn-primary" @click="closeAlert">Ok</button>
       </div>
