@@ -12,7 +12,7 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        '@unrest/vue': path.resolve(__dirname, '../dist/vue.common.js'),
+        '@unrest/vue': path.resolve(__dirname, '../src/index.js'),
       },
     },
   },

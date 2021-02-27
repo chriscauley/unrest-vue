@@ -2727,7 +2727,6 @@ Componentvue_type_script_lang_js.render = Componentvue_type_template_id_02dc34a8
 
 
 store.Component = Component;
-window.uR = store;
 /* harmony default export */ var ui = (store);
 // CONCATENATED MODULE: ./src/index.js
 
