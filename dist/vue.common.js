@@ -2469,6 +2469,7 @@ function Dropdownvue_type_template_id_2a3cab2e_render(_ctx, _cache, $props, $set
         e.__dropdown_touched = e.__dropdown_touched || this;
 
         if (this.focused) {
+          // TODO esc key should cancel focus
           document.removeEventListener('click', this.toggleFocus);
           this.onFocus();
         } else if (!e.shiftKey && !e.ctrlKey) {
@@ -2540,6 +2541,61 @@ var prepItem = function prepItem(item) {
 Dropdownvue_type_script_lang_js.render = Dropdownvue_type_template_id_2a3cab2e_render
 
 /* harmony default export */ var Dropdown = (Dropdownvue_type_script_lang_js);
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader-v16/dist/templateLoader.js??ref--6!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader-v16/dist??ref--0-1!./src/components/Modal.vue?vue&type=template&id=30abdf26
+
+var Modalvue_type_template_id_30abdf26_hoisted_1 = {
+  class: "modal"
+};
+var _hoisted_2 = {
+  class: "modal-content"
+};
+var _hoisted_3 = {
+  key: 0,
+  class: "modal-header"
+};
+var _hoisted_4 = {
+  key: 0,
+  class: "modal-title"
+};
+var _hoisted_5 = {
+  class: "modal-body"
+};
+var _hoisted_6 = {
+  class: "modal-footer"
+};
+function Modalvue_type_template_id_30abdf26_render(_ctx, _cache, $props, $setup, $data, $options) {
+  return Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])("div", Modalvue_type_template_id_30abdf26_hoisted_1, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", {
+    class: "modal-mask",
+    onClick: _cache[1] || (_cache[1] = function () {
+      return $props.close && $props.close.apply($props, arguments);
+    })
+  }), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", _hoisted_2, [$props.title ? (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])("div", _hoisted_3, [$props.title ? (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])("div", _hoisted_4, Object(external_commonjs_vue_commonjs2_vue_root_Vue_["toDisplayString"])($props.title), 1)) : Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createCommentVNode"])("", true)])) : Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createCommentVNode"])("", true), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", _hoisted_5, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["renderSlot"])(_ctx.$slots, "default")]), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", _hoisted_6, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["renderSlot"])(_ctx.$slots, "actions", {}, function () {
+    return [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("button", {
+      class: "btn -secondary",
+      onClick: _cache[2] || (_cache[2] = function () {
+        return $props.close && $props.close.apply($props, arguments);
+      })
+    }, "Close")];
+  })])])]);
+}
+// CONCATENATED MODULE: ./src/components/Modal.vue?vue&type=template&id=30abdf26
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader-v16/dist??ref--0-1!./src/components/Modal.vue?vue&type=script&lang=js
+/* harmony default export */ var Modalvue_type_script_lang_js = ({
+  props: {
+    close: Function,
+    title: String
+  }
+});
+// CONCATENATED MODULE: ./src/components/Modal.vue?vue&type=script&lang=js
+ 
+// CONCATENATED MODULE: ./src/components/Modal.vue
+
+
+
+Modalvue_type_script_lang_js.render = Modalvue_type_template_id_30abdf26_render
+
+/* harmony default export */ var Modal = (Modalvue_type_script_lang_js);
 // CONCATENATED MODULE: ./src/ui/store.js
 
 var TOAST_DELAY = 1e4; // 10s
@@ -2615,21 +2671,21 @@ var store_confirm = function confirm(_confirm) {
 var Componentvue_type_template_id_4b68ec5e_hoisted_1 = {
   class: "toast-list"
 };
-var _hoisted_2 = {
+var Componentvue_type_template_id_4b68ec5e_hoisted_2 = {
   class: "text"
 };
-var _hoisted_3 = {
+var Componentvue_type_template_id_4b68ec5e_hoisted_3 = {
   key: 0,
   class: "modal"
 };
-var _hoisted_4 = {
+var Componentvue_type_template_id_4b68ec5e_hoisted_4 = {
   class: "modal-content"
 };
-var _hoisted_5 = {
+var Componentvue_type_template_id_4b68ec5e_hoisted_5 = {
   key: 0,
   class: "modal-title"
 };
-var _hoisted_6 = {
+var Componentvue_type_template_id_4b68ec5e_hoisted_6 = {
   class: "modal-body"
 };
 var _hoisted_7 = {
@@ -2640,21 +2696,21 @@ function Componentvue_type_template_id_4b68ec5e_render(_ctx, _cache, $props, $se
     return Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])("div", {
       key: toast.id,
       class: "toast ".concat(toast.level)
-    }, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", _hoisted_2, Object(external_commonjs_vue_commonjs2_vue_root_Vue_["toDisplayString"])(toast.text), 1), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("i", {
+    }, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", Componentvue_type_template_id_4b68ec5e_hoisted_2, Object(external_commonjs_vue_commonjs2_vue_root_Vue_["toDisplayString"])(toast.text), 1), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("i", {
       class: "fa fa-close",
       onClick: function onClick($event) {
         return $options.hideToast(toast);
       }
     }, null, 8, ["onClick"])], 2);
-  }), 128))]), $options.alert ? (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])("div", _hoisted_3, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", {
+  }), 128))]), $options.alert ? (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])("div", Componentvue_type_template_id_4b68ec5e_hoisted_3, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", {
     class: "modal-mask",
     onClick: _cache[1] || (_cache[1] = function () {
       return $options.closeAlert && $options.closeAlert.apply($options, arguments);
     })
-  }), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", _hoisted_4, [$options.alert.title ? (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])("h2", _hoisted_5, [$options.alert.icon ? (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])("i", {
+  }), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", Componentvue_type_template_id_4b68ec5e_hoisted_4, [$options.alert.title ? (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])("h2", Componentvue_type_template_id_4b68ec5e_hoisted_5, [$options.alert.icon ? (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])("i", {
     key: 0,
     class: "fa fa-".concat($options.alert.icon)
-  }, null, 2)) : Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createCommentVNode"])("", true), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createTextVNode"])(" " + Object(external_commonjs_vue_commonjs2_vue_root_Vue_["toDisplayString"])($options.alert.title), 1)])) : Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createCommentVNode"])("", true), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", _hoisted_6, [$options.alert.icon && !$options.alert.title ? (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])("i", {
+  }, null, 2)) : Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createCommentVNode"])("", true), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createTextVNode"])(" " + Object(external_commonjs_vue_commonjs2_vue_root_Vue_["toDisplayString"])($options.alert.title), 1)])) : Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createCommentVNode"])("", true), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", Componentvue_type_template_id_4b68ec5e_hoisted_6, [$options.alert.icon && !$options.alert.title ? (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])("i", {
     key: 0,
     class: "fa fa-".concat($options.alert.icon)
   }, null, 2)) : Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createCommentVNode"])("", true), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createTextVNode"])(" " + Object(external_commonjs_vue_commonjs2_vue_root_Vue_["toDisplayString"])($options.alert.text), 1)]), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", _hoisted_7, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("button", {
@@ -2738,10 +2794,12 @@ store.Component = Component;
 
 
 
+
 /* harmony default export */ var src_0 = ({
   install: function install(app) {
     app.component('ur-popper', Popper);
     app.component('ur-dropdown', Dropdown);
+    app.component('ur-modal', Modal);
   }
 });
 // CONCATENATED MODULE: ./node_modules/@vue/cli-service/lib/commands/build/entry-lib.js
