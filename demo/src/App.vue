@@ -29,6 +29,11 @@
         <button type="button">Selected Color: {{ selected_color }}</button>
       </ur-dropdown>
     </div>
+    <div>
+      <h2>Modal</h2>
+      <button @click="modal=true">Show Modal</button>
+      <ur-modal v-if="modal" :close="() => modal=false" title="This is a modal">Woo</ur-modal>
+    </div>
     <ur-ui />
   </div>
 </template>
@@ -69,7 +74,7 @@ export default {
       click: () => this.selected_color = color
     }))
 
-    return { toast_levels: ui.toast.LEVELS, alerts, dropdown_items, select_items, selected_color: select_items[0].text }
+    return { toast_levels: ui.toast.LEVELS, alerts, dropdown_items, select_items, selected_color: select_items[0].text, modal:false }
   },
   methods: {
     doToast(level) {
