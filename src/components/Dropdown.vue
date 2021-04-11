@@ -12,7 +12,7 @@
             v-bind="item.attrs"
             v-is="item.tagName"
             :key="item.key"
-            >
+          >
             <i v-if="item.icon" :class="`fa fa-${item.icon}`" />
             {{ item.text }}
           </div>
@@ -23,43 +23,43 @@
 </template>
 
 <script>
-import FocusMixin from '../FocusMixin'
-import UrPopper from './Popper'
+import FocusMixin from "../FocusMixin";
+import UrPopper from "./Popper";
 
 const prepItem = (item) => {
-  if (typeof item === 'string') {
-    item = { text: item, to: item }
+  if (typeof item === "string") {
+    item = { text: item, to: item };
   }
-  item.attrs = item.attrs || {}
-  item.tagName = item.tagName || 'div'
+  item.attrs = item.attrs || {};
+  item.tagName = item.tagName || "div";
   if (item.to) {
-    item.attrs.to = item.to
-    item.tagName = 'router-link'
+    item.attrs.to = item.to;
+    item.tagName = "router-link";
   }
   if (item.href) {
-    item.attrs.href = item.href
-    item.tagName = 'a'
+    item.attrs.href = item.href;
+    item.tagName = "a";
   }
   if (item.click) {
-    item.attrs.onclick = item.click
-    item.attrs.class = 'cursor-pointer'
+    item.attrs.onclick = item.click;
+    item.attrs.class = "cursor-pointer";
   }
-  item.key = item.key || item.text || item.icon
-  return item
-}
+  item.key = item.key || item.text || item.icon;
+  return item;
+};
 
 export default {
+  components: { UrPopper },
   mixins: [FocusMixin],
   props: {
     items: Array,
     placement: String,
     title: String,
   },
-  components: { UrPopper },
   computed: {
     preppedItems() {
-      return this.items.map(prepItem)
+      return this.items.map(prepItem);
     },
   },
-}
+};
 </script>

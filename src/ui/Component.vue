@@ -1,6 +1,10 @@
 <template>
   <div class="toast-list">
-    <div v-for="toast in toasts" :key="toast.id" :class="`toast ${toast.level}`">
+    <div
+      v-for="toast in toasts"
+      :key="toast.id"
+      :class="`toast ${toast.level}`"
+    >
       <div class="text">
         {{ toast.text }}
       </div>
@@ -26,21 +30,21 @@
 </template>
 
 <script>
-import store from './store'
+import store from "./store";
 
 const prepAlert = (alert) => {
-  if (!alert) return
-  if (typeof alert === 'string') {
-    alert = { text: alert }
+  if (!alert) return;
+  if (typeof alert === "string") {
+    alert = { text: alert };
   }
-  return alert
-}
+  return alert;
+};
 
 const prepConfirm = (confirm) => {
-  if (!confirm) return
-}
+  if (!confirm) return;
+};
 
-const noop = () => {}
+const noop = () => {};
 
 export default {
   computed: {
@@ -50,11 +54,11 @@ export default {
   },
   methods: {
     closeAlert(success) {
-      const { confirm = noop, abort = noop } = this.alert
-      ;(success ? confirm : abort)()
-      store.state.alert = null
+      const { confirm = noop, abort = noop } = this.alert;
+      (success ? confirm : abort)();
+      store.state.alert = null;
     },
     hideToast: store.toast.hide,
   },
-}
+};
 </script>
