@@ -2410,13 +2410,16 @@ var core_ = __webpack_require__("a5c7");
 Poppervue_type_script_lang_js.render = render
 
 /* harmony default export */ var Popper = (Poppervue_type_script_lang_js);
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader-v16/dist/templateLoader.js??ref--6!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader-v16/dist??ref--0-1!./src/components/Dropdown.vue?vue&type=template&id=2a3cab2e
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader-v16/dist/templateLoader.js??ref--6!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader-v16/dist??ref--0-1!./src/components/Dropdown.vue?vue&type=template&id=7109e0b6
 
-var Dropdownvue_type_template_id_2a3cab2e_hoisted_1 = {
+var Dropdownvue_type_template_id_7109e0b6_hoisted_1 = {
+  class: "ur-dropdown__trigger"
+};
+var _hoisted_2 = {
   key: 0,
   class: "dropdown-items"
 };
-function Dropdownvue_type_template_id_2a3cab2e_render(_ctx, _cache, $props, $setup, $data, $options) {
+function Dropdownvue_type_template_id_7109e0b6_render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_ur_popper = Object(external_commonjs_vue_commonjs2_vue_root_Vue_["resolveComponent"])("ur-popper");
 
   return Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])("div", {
@@ -2424,15 +2427,18 @@ function Dropdownvue_type_template_id_2a3cab2e_render(_ctx, _cache, $props, $set
       return _ctx.toggleFocus && _ctx.toggleFocus.apply(_ctx, arguments);
     }),
     class: "ur-dropdown"
-  }, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["renderSlot"])(_ctx.$slots, "default"), _ctx.focused ? (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])(_component_ur_popper, {
+  }, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["renderSlot"])(_ctx.$slots, "default", {}, function () {
+    return [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", Dropdownvue_type_template_id_7109e0b6_hoisted_1, Object(external_commonjs_vue_commonjs2_vue_root_Vue_["toDisplayString"])($props.title), 1)];
+  }), _ctx.focused ? (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])(_component_ur_popper, {
     key: 0,
-    class: "popdown"
+    class: "popdown",
+    placement: $props.placement
   }, {
     default: Object(external_commonjs_vue_commonjs2_vue_root_Vue_["withCtx"])(function () {
       return [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["renderSlot"])(_ctx.$slots, "content", {}, function () {
         var _$props$items;
 
-        return [(_$props$items = $props.items) !== null && _$props$items !== void 0 && _$props$items.length ? (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])("div", Dropdownvue_type_template_id_2a3cab2e_hoisted_1, [(Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(true), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])(external_commonjs_vue_commonjs2_vue_root_Vue_["Fragment"], null, Object(external_commonjs_vue_commonjs2_vue_root_Vue_["renderList"])($options.preppedItems, function (item) {
+        return [(_$props$items = $props.items) !== null && _$props$items !== void 0 && _$props$items.length ? (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])("div", _hoisted_2, [(Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(true), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])(external_commonjs_vue_commonjs2_vue_root_Vue_["Fragment"], null, Object(external_commonjs_vue_commonjs2_vue_root_Vue_["renderList"])($options.preppedItems, function (item) {
           return Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])(Object(external_commonjs_vue_commonjs2_vue_root_Vue_["resolveDynamicComponent"])(item.tagName), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["mergeProps"])({
             class: "dropdown-item"
           }, item.attrs, {
@@ -2450,9 +2456,9 @@ function Dropdownvue_type_template_id_2a3cab2e_render(_ctx, _cache, $props, $set
       })];
     }),
     _: 3
-  })) : Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createCommentVNode"])("", true)]);
+  }, 8, ["placement"])) : Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createCommentVNode"])("", true)]);
 }
-// CONCATENATED MODULE: ./src/components/Dropdown.vue?vue&type=template&id=2a3cab2e
+// CONCATENATED MODULE: ./src/components/Dropdown.vue?vue&type=template&id=7109e0b6
 
 // CONCATENATED MODULE: ./src/FocusMixin.js
 /* harmony default export */ var FocusMixin = ({
@@ -2510,6 +2516,7 @@ var prepItem = function prepItem(item) {
   }
 
   if (item.click) {
+    console.log('click', item);
     item.attrs.onclick = item.click;
     item.attrs.class = 'cursor-pointer';
   }
@@ -2521,7 +2528,9 @@ var prepItem = function prepItem(item) {
 /* harmony default export */ var Dropdownvue_type_script_lang_js = ({
   mixins: [FocusMixin],
   props: {
-    items: Array
+    items: Array,
+    placement: String,
+    title: String
   },
   components: {
     UrPopper: Popper
@@ -2538,7 +2547,7 @@ var prepItem = function prepItem(item) {
 
 
 
-Dropdownvue_type_script_lang_js.render = Dropdownvue_type_template_id_2a3cab2e_render
+Dropdownvue_type_script_lang_js.render = Dropdownvue_type_template_id_7109e0b6_render
 
 /* harmony default export */ var Dropdown = (Dropdownvue_type_script_lang_js);
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader-v16/dist/templateLoader.js??ref--6!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader-v16/dist??ref--0-1!./src/components/Modal.vue?vue&type=template&id=30abdf26
@@ -2546,7 +2555,7 @@ Dropdownvue_type_script_lang_js.render = Dropdownvue_type_template_id_2a3cab2e_r
 var Modalvue_type_template_id_30abdf26_hoisted_1 = {
   class: "modal"
 };
-var _hoisted_2 = {
+var Modalvue_type_template_id_30abdf26_hoisted_2 = {
   class: "modal-content"
 };
 var _hoisted_3 = {
@@ -2569,7 +2578,7 @@ function Modalvue_type_template_id_30abdf26_render(_ctx, _cache, $props, $setup,
     onClick: _cache[1] || (_cache[1] = function () {
       return $props.close && $props.close.apply($props, arguments);
     })
-  }), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", _hoisted_2, [$props.title ? (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])("div", _hoisted_3, [$props.title ? (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])("div", _hoisted_4, Object(external_commonjs_vue_commonjs2_vue_root_Vue_["toDisplayString"])($props.title), 1)) : Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createCommentVNode"])("", true)])) : Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createCommentVNode"])("", true), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", _hoisted_5, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["renderSlot"])(_ctx.$slots, "default")]), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", _hoisted_6, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["renderSlot"])(_ctx.$slots, "actions", {}, function () {
+  }), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", Modalvue_type_template_id_30abdf26_hoisted_2, [$props.title ? (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])("div", _hoisted_3, [$props.title ? (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createBlock"])("div", _hoisted_4, Object(external_commonjs_vue_commonjs2_vue_root_Vue_["toDisplayString"])($props.title), 1)) : Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createCommentVNode"])("", true)])) : Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createCommentVNode"])("", true), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", _hoisted_5, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["renderSlot"])(_ctx.$slots, "default")]), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", _hoisted_6, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["renderSlot"])(_ctx.$slots, "actions", {}, function () {
     return [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("button", {
       class: "btn -secondary",
       onClick: _cache[2] || (_cache[2] = function () {

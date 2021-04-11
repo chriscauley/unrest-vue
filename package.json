@@ -5,7 +5,7 @@
   "main": "dist/vue.common.js",
   "license": "MIT",
   "scripts": {
-    "build": "vue-cli-service build --target lib src/index.js",
+    "build": "vue-cli-service build --target lib src/index.js --no-clean",
     "lint": "vue-cli-service lint"
   },
   "peerDependencies": {
