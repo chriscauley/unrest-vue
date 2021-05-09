@@ -1,4 +1,5 @@
 module.exports = {
+  lintOnSave: false,
   configureWebpack: {
     externals: {
       "@popperjs/core": {

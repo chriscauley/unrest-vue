@@ -30,19 +30,26 @@ const prepItem = (item) => {
   if (typeof item === "string") {
     item = { text: item, to: item };
   }
-  item.attrs = item.attrs || {};
+  const attrs = (item.attrs = item.attrs || {});
+  attrs.class = attrs.class || [];
+  if (!Array.isArray(attrs.class)) {
+    attrs.class = [attrs.class];
+  }
+  if (item.class) {
+    attrs.class.push(item.class);
+  }
   item.tagName = item.tagName || "div";
   if (item.to) {
-    item.attrs.to = item.to;
+    attrs.to = item.to;
     item.tagName = "router-link";
   }
   if (item.href) {
-    item.attrs.href = item.href;
+    attrs.href = item.href;
     item.tagName = "a";
   }
   if (item.click) {
-    item.attrs.onclick = item.click;
-    item.attrs.class = "cursor-pointer";
+    attrs.onclick = item.click;
+    attrs.class.push("cursor-pointer");
   }
   item.key = item.key || item.text || item.icon;
   return item;
