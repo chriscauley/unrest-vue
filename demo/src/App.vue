@@ -34,12 +34,11 @@
       <button @click="modal=true">Show Modal</button>
       <ur-modal v-if="modal" :close="() => modal=false" title="This is a modal">Woo</ur-modal>
     </div>
-    <ur-ui />
+    <unrest-ui />
   </div>
 </template>
 
 <script>
-import { ui } from '@unrest/vue'
 
 const alerts = {
   text: 'Text only alert',
@@ -62,26 +61,32 @@ const dropdown_items = [
   'string',
   { text: 'This is text' },
   { text: 'This item has an icon', icon: 'birthday-cake' },
-  { text: 'This item has an click', click: () => ui.toast('Clicked dropdown item') }
+  { text: 'This item has an click', click: () => this.$ui.toast('Clicked dropdown item') }
 ]
 
 export default {
   name: 'App',
-  components: { 'ur-ui': ui.Component },
   data() {
     const select_items = ['red', 'green', 'blue'].map(color => ({
       text: color,
       click: () => this.selected_color = color
     }))
 
-    return { toast_levels: ui.toast.LEVELS, alerts, dropdown_items, select_items, selected_color: select_items[0].text, modal:false }
+    return {
+      toast_levels: this.$ui.toast.LEVELS,
+      alerts,
+      dropdown_items,
+      select_items,
+      selected_color: select_items[0].text,
+      modal: false,
+    }
   },
   methods: {
     doToast(level) {
-      ui.toast[level](`This is a ${level} toast.`)
+      this.$ui.toast[level](`This is a ${level} toast.`)
     },
     doAlert(key) {
-      ui.alert(alerts[key])
+      this.$ui.alert(alerts[key])
     }
   }
 }
