@@ -1,10 +1,6 @@
 <template>
   <div class="toast-list">
-    <div
-      v-for="toast in toasts"
-      :key="toast.id"
-      :class="`toast -${toast.level}`"
-    >
+    <div v-for="toast in toasts" :key="toast.id" :class="`toast -${toast.level}`">
       <div class="text">
         {{ toast.text }}
       </div>

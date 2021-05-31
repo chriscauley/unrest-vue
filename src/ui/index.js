@@ -5,9 +5,8 @@ store.Component = Component;
 
 export default {
   install(app) {
-    app.config.globalProperties.$ui = store
-    app.component('unrest-ui', Component)
+    app.config.globalProperties.$ui = store;
+    app.component("UnrestUi", Component);
   },
   ...store,
-}
-
+};

@@ -8,6 +8,7 @@ module.exports = {
   rules: {
     "no-console": ["error", { allow: ["warn", "error"] }],
     "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
+    "prettier/prettier": ["error", { printWidth: 100 }],
     "react/react-in-jsx-scope": 0,
     "react/display-name": 0,
     "vue/attribute-hyphenation": 0,

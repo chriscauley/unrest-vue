@@ -30,19 +30,14 @@ export default {
       this.popper?.destroy();
       const modifiers = [];
       const offset =
-        typeof this.offset === "string"
-          ? this.offset.split(",").map(Number)
-          : this.offset;
+        typeof this.offset === "string" ? this.offset.split(",").map(Number) : this.offset;
       if (offset) {
         modifiers.push({
           name: "offset",
           options: { offset },
         });
       }
-      const {
-        placement = "bottom-start",
-        target = this.$el.parentElement,
-      } = this;
+      const { placement = "bottom-start", target = this.$el.parentElement } = this;
       this.popper = createPopper(target, this.$el, { placement, modifiers });
     },
   },
