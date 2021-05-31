@@ -3,7 +3,7 @@
     <div
       v-for="toast in toasts"
       :key="toast.id"
-      :class="`toast ${toast.level}`"
+      :class="`toast -${toast.level}`"
     >
       <div class="text">
         {{ toast.text }}
