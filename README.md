@@ -4,4 +4,6 @@ This is my "kitchen sink" repo for my extra-curricular vue projects. If you're i
 
 ## TODO
 
+* Document all the things!
+
 * UI needs to be namespaceable (eg `app.use(ui.config({namespace: 'whatever}))` assigns ui to `this.$whatever` instead of `this.$ui`)

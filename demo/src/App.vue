@@ -39,6 +39,7 @@
 </template>
 
 <script>
+import { ui } from '@unrest/vue';
 
 const alerts = {
   text: 'Text only alert',
@@ -61,7 +62,7 @@ const dropdown_items = [
   'string',
   { text: 'This is text' },
   { text: 'This item has an icon', icon: 'birthday-cake' },
-  { text: 'This item has an click', click: () => this.$ui.toast('Clicked dropdown item') }
+  { text: 'This item has an click', click: () => ui.alert('You clicked the dropdown!') }
 ]
 
 export default {
