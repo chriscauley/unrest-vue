@@ -14,7 +14,7 @@
         <i :class="`fa fa-${alert.icon}`" v-if="alert.icon" />
         {{ alert.title }}
       </h2>
-      <div class="modal-body">
+      <div class="modal-body max-w-md w-11/12">
         <i :class="`fa fa-${alert.icon}`" v-if="alert.icon && !alert.title" />
         {{ alert.text }}
       </div>
