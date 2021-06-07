@@ -9,7 +9,7 @@
   </div>
   <div v-if="alert" class="modal">
     <div class="modal-mask" @click="closeAlert" />
-    <div class="modal-content">
+    <div class="modal-content" v-is="alert.tagName" @close="closeAlert">
       <h2 v-if="alert.title" class="modal-title">
         <i :class="`fa fa-${alert.icon}`" v-if="alert.icon" />
         {{ alert.title }}
@@ -18,8 +18,15 @@
         <i :class="`fa fa-${alert.icon}`" v-if="alert.icon && !alert.title" />
         {{ alert.text }}
       </div>
-      <div class="modal-footer">
-        <button class="btn btn-primary" @click="closeAlert">Ok</button>
+      <div class="modal-footer" v-if="actions.length">
+        <button
+          v-for="action,i in actions"
+          :key="i"
+          :class="action.class"
+          @click="action.click"
+          >
+          {{ action.text }}
+        </button>
       </div>
     </div>
   </div>
@@ -33,6 +40,7 @@ const prepAlert = (alert) => {
   if (typeof alert === "string") {
     alert = { text: alert };
   }
+  alert.tagName = alert.tagName || 'div'
   return alert;
 };
 
@@ -47,6 +55,14 @@ export default {
     toasts: () => store.state.toasts.filter((t) => !t.hidden),
     alert: () => prepAlert(store.state.alert),
     confirm: () => prepConfirm(store.state.confirm),
+    actions() {
+      const actions = this.alert.actions || [{
+        click: this.closeAlert,
+        text: 'Ok',
+      }]
+      actions.forEach(action => action.class = action.class || 'btn btn-primary')
+      return actions
+    }
   },
   methods: {
     closeAlert(success) {
