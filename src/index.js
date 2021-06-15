@@ -3,8 +3,9 @@ import UrDropdown from "./components/Dropdown";
 import UrModal from "./components/Modal";
 import FocusMixin from "./FocusMixin";
 import ui from "./ui";
+import { applyMeta, loadViews } from "./router";
 
-export { UrPopper, UrDropdown, FocusMixin, ui };
+export { UrPopper, UrDropdown, FocusMixin, ui, applyMeta, loadViews };
 
 export default {
   install(app) {
