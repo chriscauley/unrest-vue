@@ -23,37 +23,37 @@
 </template>
 
 <script>
-import FocusMixin from "../FocusMixin";
-import UrPopper from "./Popper.vue";
+import FocusMixin from '../FocusMixin'
+import UrPopper from './Popper.vue'
 
 const prepItem = (item) => {
-  if (typeof item === "string") {
-    item = { text: item, to: item };
+  if (typeof item === 'string') {
+    item = { text: item, to: item }
   }
-  const attrs = (item.attrs = item.attrs || {});
-  attrs.class = attrs.class || [];
+  const attrs = (item.attrs = item.attrs || {})
+  attrs.class = attrs.class || []
   if (!Array.isArray(attrs.class)) {
-    attrs.class = [attrs.class];
+    attrs.class = [attrs.class]
   }
   if (item.class) {
-    attrs.class.push(item.class);
+    attrs.class.push(item.class)
   }
-  item.tagName = item.tagName || "div";
+  item.tagName = item.tagName || 'div'
   if (item.to) {
-    attrs.to = item.to;
-    item.tagName = "router-link";
+    attrs.to = item.to
+    item.tagName = 'router-link'
   }
   if (item.href) {
-    attrs.href = item.href;
-    item.tagName = "a";
+    attrs.href = item.href
+    item.tagName = 'a'
   }
   if (item.click) {
-    attrs.onclick = item.click;
-    attrs.class.push("cursor-pointer");
+    attrs.onclick = item.click
+    attrs.class.push('cursor-pointer')
   }
-  item.key = item.key || item.text || item.icon;
-  return item;
-};
+  item.key = item.key || item.text || item.icon
+  return item
+}
 
 export default {
   components: { UrPopper },
@@ -65,8 +65,8 @@ export default {
   },
   computed: {
     preppedItems() {
-      return this.items.map(prepItem);
+      return this.items.map(prepItem)
     },
   },
-};
+}
 </script>

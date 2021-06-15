@@ -28,22 +28,22 @@
 </template>
 
 <script>
-import store from "./store";
+import store from './store'
 
 const prepAlert = (alert) => {
-  if (!alert) return;
-  if (typeof alert === "string") {
-    alert = { text: alert };
+  if (!alert) return
+  if (typeof alert === 'string') {
+    alert = { text: alert }
   }
-  alert.tagName = alert.tagName || "div";
-  return alert;
-};
+  alert.tagName = alert.tagName || 'div'
+  return alert
+}
 
 const prepConfirm = (confirm) => {
-  if (!confirm) return;
-};
+  if (!confirm) return
+}
 
-const noop = () => {};
+const noop = () => {}
 
 export default {
   computed: {
@@ -54,20 +54,20 @@ export default {
       const actions = this.alert.actions || [
         {
           click: this.closeAlert,
-          text: "Ok",
+          text: 'Ok',
         },
-      ];
-      actions.forEach((action) => (action.class = action.class || "btn btn-primary"));
-      return actions;
+      ]
+      actions.forEach((action) => (action.class = action.class || 'btn btn-primary'))
+      return actions
     },
   },
   methods: {
     closeAlert(success) {
-      const { confirm = noop, abort = noop } = this.alert;
-      (success ? confirm : abort)();
-      store.state.alert = null;
+      const { confirm = noop, abort = noop } = this.alert
+      ;(success ? confirm : abort)()
+      store.state.alert = null
     },
     hideToast: store.toast.hide,
   },
-};
+}
 </script>

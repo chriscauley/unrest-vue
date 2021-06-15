@@ -25,5 +25,5 @@ export default {
     close: Function,
     title: String,
   },
-};
+}
 </script>
