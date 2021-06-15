@@ -1,5 +1,5 @@
 import store from "./store";
-import Component from "./Component";
+import Component from "./Component.vue";
 
 store.Component = Component;
 

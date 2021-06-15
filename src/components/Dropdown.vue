@@ -24,7 +24,7 @@
 
 <script>
 import FocusMixin from "../FocusMixin";
-import UrPopper from "./Popper";
+import UrPopper from "./Popper.vue";
 
 const prepItem = (item) => {
   if (typeof item === "string") {

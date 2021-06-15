@@ -2,34 +2,36 @@
   "name": "@unrest/vue",
   "author": "Chris Cauley <cauley.chris@gmail.com>",
   "version": "0.1.3",
-  "main": "dist/vue.common.js",
   "license": "MIT",
   "scripts": {
-    "build": "vue-cli-service build --target lib src/index.js --no-clean",
-    "lint": "vue-cli-service lint"
+    "build": "vite build",
+    "lint": "eslint src/**/*"
+  },
+  "files": ["dist"],
+  "main": "./dist/vue.umd.js",
+  "module": "./dist/vue.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue.es.js",
+      "require": "./dist/vue.umd.js"
+    }
+  },
+  "dependencies": {
+    "@unrest/vue-reactive-storage": "^0.0.1"
   },
   "peerDependencies": {
     "@popperjs/core": "^2.8.6",
-    "core-js": "^3.6.5",
-    "vue": "^3.0.0"
+    "vue": "^3.0.5"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0",
+    "@vitejs/plugin-vue": "^1.2.3",
+    "@vue/compiler-sfc": "^3.0.5",
     "babel-eslint": "^10.1.0",
-    "core-js": "^3.6.5",
     "eslint": "^6.7.2",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^7.0.0-0",
-    "prettier": "^2",
-    "vue": "^3.0.0"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+    "prettier": "1.18.2",
+    "vite": "2.3.3"
+  }
 }

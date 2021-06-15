@@ -1,16 +1,23 @@
-import UrPopper from "./components/Popper";
-import UrDropdown from "./components/Dropdown";
-import UrModal from "./components/Modal";
+import UrPopper from "./components/Popper.vue";
+import UrDropdown from "./components/Dropdown.vue";
+import UrModal from "./components/Modal.vue";
 import FocusMixin from "./FocusMixin";
 import ui from "./ui";
 import { applyMeta, loadViews } from "./router";
 
-export { UrPopper, UrDropdown, FocusMixin, ui, applyMeta, loadViews };
-
 export default {
-  install(app) {
-    app.component("UrPopper", UrPopper);
-    app.component("UrDropdown", UrDropdown);
-    app.component("UrModal", UrModal);
-  },
+  UrPopper,
+  UrDropdown,
+  FocusMixin,
+  ui,
+  applyMeta,
+  loadViews,
+
+  plugin: {
+    install(app) {
+      app.component("UrPopper", UrPopper);
+      app.component("UrDropdown", UrDropdown);
+      app.component("UrModal", UrModal);
+    },
+  }
 };
