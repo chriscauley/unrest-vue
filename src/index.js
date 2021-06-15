@@ -4,10 +4,13 @@ import UrModal from "./components/Modal.vue";
 import FocusMixin from "./FocusMixin";
 import ui from './ui';
 import { applyMeta, loadViews } from './router';
+import UrSchemaForm from './SchemaForm.vue';
 
 export default {
   UrPopper,
   UrDropdown,
+  UrModal,
+  UrSchemaForm,
   FocusMixin,
   ui,
   applyMeta,
@@ -18,6 +21,7 @@ export default {
       app.component("UrPopper", UrPopper);
       app.component("UrDropdown", UrDropdown);
       app.component("UrModal", UrModal);
+      app.component("UrSchemaForm", UrSchemaForm);
     },
   }
 };

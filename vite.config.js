@@ -14,7 +14,7 @@ export default defineConfig({
       output: {
         globals: {
           vue: 'Vue',
-          '@unrest/vue-reactive-storage': 'UnrestVueReactiveStorage',
+          '@unrest/vue-reactive-storage': '@unrest/vue-reactive-storage',
           '@popperjs/core': '@popperjs/core',
         }
       }
