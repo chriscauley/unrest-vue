@@ -19,12 +19,7 @@
         {{ alert.text }}
       </div>
       <div class="modal-footer" v-if="actions.length">
-        <button
-          v-for="action,i in actions"
-          :key="i"
-          :class="action.class"
-          @click="action.click"
-          >
+        <button v-for="(action, i) in actions" :key="i" :class="action.class" @click="action.click">
           {{ action.text }}
         </button>
       </div>
@@ -40,7 +35,7 @@ const prepAlert = (alert) => {
   if (typeof alert === "string") {
     alert = { text: alert };
   }
-  alert.tagName = alert.tagName || 'div'
+  alert.tagName = alert.tagName || "div";
   return alert;
 };
 
@@ -56,13 +51,15 @@ export default {
     alert: () => prepAlert(store.state.alert),
     confirm: () => prepConfirm(store.state.confirm),
     actions() {
-      const actions = this.alert.actions || [{
-        click: this.closeAlert,
-        text: 'Ok',
-      }]
-      actions.forEach(action => action.class = action.class || 'btn btn-primary')
-      return actions
-    }
+      const actions = this.alert.actions || [
+        {
+          click: this.closeAlert,
+          text: "Ok",
+        },
+      ];
+      actions.forEach((action) => (action.class = action.class || "btn btn-primary"));
+      return actions;
+    },
   },
   methods: {
     closeAlert(success) {
