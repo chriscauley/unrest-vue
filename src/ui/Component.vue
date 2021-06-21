@@ -9,7 +9,7 @@
   </div>
   <div v-if="alert" class="modal">
     <div class="modal-mask" @click="closeAlert" />
-    <div class="modal-content" v-is="alert.tagName" @close="closeAlert">
+    <div class="modal-content" v-is="alert.tagName" @close="closeAlert" :style="modal_style">
       <h2 v-if="alert.title" class="modal-title">
         <i :class="`fa fa-${alert.icon}`" v-if="alert.icon" />
         {{ alert.title }}
@@ -59,6 +59,11 @@ export default {
       ]
       actions.forEach((action) => (action.class = action.class || 'btn btn-primary'))
       return actions
+    },
+    modal_style() {
+      if (this.alert.width) {
+        return `width: ${this.alert.width}px`
+      }
     },
   },
   methods: {
