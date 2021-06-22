@@ -14,13 +14,17 @@ export default (to, from, next) => {
     .reverse()
     .find((r) => r.meta?.title)
   if (nearestWithTitle) {
-    document.title = nearestWithTitle.meta.title
+    let { title } = nearestWithTitle.meta
+    if (typeof title === 'function') {
+      title = title(to)
+    }
+    document.title = title
   }
 
   const nearestWithMeta = to.matched
     .slice()
     .reverse()
-    .find((r) => r.meta?.metaTags)
+    .find((r) => r.meta?.tags)
 
   // Remove any stale meta tags from the document using the key attribute we set below.
   Array.from(document.querySelectorAll(`[${q}]`)).forEach((el) => el.parentNode.removeChild(el))
