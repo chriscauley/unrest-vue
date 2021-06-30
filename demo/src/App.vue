@@ -5,41 +5,59 @@
     <div>
       <h2>Toasts</h2>
       <button v-for="level in toast_levels" @click="doToast(level)" :key="level">
-        Toast {{ level }}
+        $ui.toast.{{ level }}(text)
       </button>
     </div>
     <div>
       <h2>Alert</h2>
       <button v-for="value, key in alerts" :key="key" @click="doAlert(key)">
-        Alert using {{ key.replace(/_/g, ' + ') }}
+        {{ getAlertText(key) }}
       </button>
     </div>
     <div>
       <h2>Dropdown</h2>
-      <ur-dropdown>
+      <unrest-dropdown>
         <button type="button">Dropdown with content</button>
         <template #content>
           Custom conetnt goes here
         </template>
-      </ur-dropdown>
-      <ur-dropdown :items="dropdown_items">
+      </unrest-dropdown>
+      <unrest-dropdown :items="dropdown_items">
         <button type="button">Dropdown with items</button>
-      </ur-dropdown>
-      <ur-dropdown :items="select_items">
+      </unrest-dropdown>
+      <unrest-dropdown :items="select_items">
         <button type="button">Selected Color: {{ selected_color }}</button>
-      </ur-dropdown>
+      </unrest-dropdown>
     </div>
     <div>
       <h2>Modal</h2>
       <button @click="modal=true">Show Modal</button>
-      <ur-modal v-if="modal" :close="() => modal=false" title="This is a modal">Woo</ur-modal>
+      <unrest-modal v-if="modal" :close="() => modal=false" title="This is a modal">Woo</unrest-modal>
+    </div>
+    <div>
+      <h2>Markdown</h2>
+      <unrest-markdown
+        :source="`
+                 Markdown
+
+                 Markdown support via [Marked](marked.js.org).
+                 `"
+        />
+      <p>Markdown can be <unrest-markdown :inline="true" source="**inline**" /></p>
+      <unrest-markdown :dedent="false" source="        unrest-markdown tags default to dedent. It can be disabled." />
     </div>
     <unrest-ui />
   </div>
 </template>
 
 <script>
-import { ui } from '@unrest/vue';
+import { markRaw } from 'vue';
+import UnrestVue from '@unrest/vue';
+
+import FunctionalComponent from './components/FunctionalComponent';
+import SingleFileComponent from './components/SingleFileComponent';
+
+const { ui } = UnrestVue;
 
 const alerts = {
   text: 'Text only alert',
@@ -55,7 +73,13 @@ const alerts = {
     icon: 'warning',
     title: 'Alert Title',
     text: 'Alert text goes here',
-  }
+  },
+  text_class: {
+    text: 'The class option will alter the class of the modal-content element',
+    class: 'modal-error',
+  },
+  FunctionalComponent: markRaw(FunctionalComponent),
+  SingleFileComponent: markRaw(SingleFileComponent),
 }
 
 const dropdown_items = [
@@ -66,7 +90,7 @@ const dropdown_items = [
 ]
 
 export default {
-  name: 'App',
+  components: { FunctionalComponent, SingleFileComponent },
   data() {
     const select_items = ['red', 'green', 'blue'].map(color => ({
       text: color,
@@ -83,6 +107,15 @@ export default {
     }
   },
   methods: {
+    getAlertText(key) {
+      if (key.toLowerCase() !== key) {
+        return `$ui.alert(${key})`
+      }
+      if (typeof alerts[key] === 'string') {
+        return `$ui.alert("${alerts[key]}")`
+      }
+      return `$ui.alert({ ${key.replace(/_/g, ', ')} })`
+    },
     doToast(level) {
       this.$ui.toast[level](`This is a ${level} toast.`)
     },

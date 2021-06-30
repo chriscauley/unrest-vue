@@ -7,9 +7,9 @@
       <i class="fa fa-close" @click="hideToast(toast)" />
     </div>
   </div>
-  <div v-if="alert" class="modal">
+  <div v-if="alert" class="modal" @close="closeAlert">
     <div class="modal-mask" @click="closeAlert" />
-    <div class="modal-content" v-is="alert.tagName" @close="closeAlert" :style="modal_style">
+    <div :class="modal_class" v-is="alert.tagName" @close="closeAlert" :style="modal_style">
       <h2 v-if="alert.title" class="modal-title">
         <i :class="`fa fa-${alert.icon}`" v-if="alert.icon" />
         {{ alert.title }}
@@ -66,6 +66,9 @@ export default {
     modal_style() {
       return this.alert.width ? `width: ${this.alert.width}px` : ''
     },
+    modal_class() {
+      return `modal-content ${this.alert.class || ''}`
+    }
   },
   methods: {
     closeAlert(success) {
