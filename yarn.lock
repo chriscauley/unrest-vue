@@ -91,6 +91,18 @@
     "@babel/helper-validator-identifier" "^7.14.0"
     to-fast-properties "^2.0.0"
 
+"@unrest/eslint-config@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@unrest/eslint-config/-/eslint-config-0.0.3.tgz#2a472b47a63e88405ad0dca3b067489ebb753d2a"
+  integrity sha512-FYyQLNMnQezdo4UT4IaZEJlzKvuijdyb/xU9VajIGl3yPtH0McYyqlcmGJJkwh/eHAs+Y+6kdCTB1hzWrQqX3Q==
+  dependencies:
+    babel-eslint "^10.1.0"
+    eslint "^6.7.2"
+    eslint-config-prettier "^8.1.0"
+    eslint-plugin-prettier "^3.3.1"
+    eslint-plugin-vue "^7.0.0-0"
+    prettier "^1.18.2"
+
 "@unrest/vue-reactive-storage@^0.0.1":
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/@unrest/vue-reactive-storage/-/vue-reactive-storage-0.0.1.tgz#b31d4e1f52045ec20a49b31cd5e6afbd0dbb29fa"
@@ -1162,10 +1174,10 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@^2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.3.1.tgz#76903c3f8c4449bc9ac597acefa24dc5ad4cbea6"
-  integrity sha512-p+vNbgpLjif/+D+DwAZAbndtRrR0md0MwfmOVN9N+2RgyACMT+7tfaRnT+WDPkqnuVwleyuBIG2XBxKDme3hPA==
+prettier@^1.18.2:
+  version "1.19.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.19.1.tgz#f7d7f5ff8a9cd872a7be4ca142095956a60797cb"
+  integrity sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew==
 
 progress@^2.0.0:
   version "2.0.3"

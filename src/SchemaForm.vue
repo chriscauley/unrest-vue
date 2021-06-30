@@ -29,20 +29,20 @@ const api = ReactiveRestApi({})
 
 // https://stackoverflow.com/a/40722084/266564
 const cloneDeep = (obj) => {
-  const newObj = {};
-  Object.keys(obj).forEach(key => {
-    if(typeof(obj[key]) === 'object' && Object.keys(obj[key]).length){
-      newObj[key] = cloneDeep(obj[key]);
-    } else{
-      newObj[key] = obj[key];
+  const newObj = {}
+  Object.keys(obj).forEach((key) => {
+    if (typeof obj[key] === 'object' && Object.keys(obj[key]).length) {
+      newObj[key] = cloneDeep(obj[key])
+    } else {
+      newObj[key] = obj[key]
     }
   })
-  return Object.assign({}, newObj);
+  return Object.assign({}, newObj)
 }
 
-const getSchema = form_name => api.get(`${form_name}/?schema=1`)?.schema
+const getSchema = (form_name) => api.get(`${form_name}/?schema=1`)?.schema
 
-export const prepSchema = schema => {
+export const prepSchema = (schema) => {
   schema = cloneDeep(schema)
   if (schema.properties.avatar_url) {
     schema.properties.avatar_url.type = 'image'
@@ -52,7 +52,7 @@ export const prepSchema = schema => {
     schema.properties.photo_url.type = 'image'
     schema.properties.photo_url.title = 'Photo'
   }
-  Object.values(schema.properties).forEach(property => {
+  Object.values(schema.properties).forEach((property) => {
     if (property.__widget === 'HiddenInput') {
       property.ui = { tagName: 'ur-hidden' }
     }
@@ -87,11 +87,11 @@ export default {
       this.loading = true
       return api
         .post(`${this.form_name}/`, state)
-        .catch(e => {
+        .catch((e) => {
           this.loading = false
           throw e
         })
-        .then(result => {
+        .then((result) => {
           this.loading = false
           api.markStale()
           this.success?.(result)

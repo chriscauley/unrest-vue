@@ -68,7 +68,7 @@ export default {
     },
     modal_class() {
       return `modal-content ${this.alert.class || ''}`
-    }
+    },
   },
   methods: {
     closeAlert(success) {
