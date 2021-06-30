@@ -32,6 +32,9 @@ import store from './store'
 
 const prepAlert = (alert) => {
   if (!alert) return
+  if (alert.render || typeof alert === 'function') {
+    alert = { tagName: alert }
+  }
   if (typeof alert === 'string') {
     alert = { text: alert }
   }
@@ -61,9 +64,7 @@ export default {
       return actions
     },
     modal_style() {
-      if (this.alert.width) {
-        return `width: ${this.alert.width}px`
-      }
+      return this.alert.width ? `width: ${this.alert.width}px` : ''
     },
   },
   methods: {
