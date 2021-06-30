@@ -25,7 +25,7 @@
 <script>
 import { ReactiveRestApi } from '@unrest/vue-reactive-storage'
 
-const api = ReactiveRestApi()
+const api = ReactiveRestApi({})
 
 // https://stackoverflow.com/a/40722084/266564
 const cloneDeep = (obj) => {
