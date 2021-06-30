@@ -1,7 +1,6 @@
 <template>
   <div>
-    <div class="main-nav">
-    </div>
+    <div class="main-nav"></div>
     <div>
       <h2>Toasts</h2>
       <button v-for="level in toast_levels" @click="doToast(level)" :key="level">
@@ -10,7 +9,7 @@
     </div>
     <div>
       <h2>Alert</h2>
-      <button v-for="value, key in alerts" :key="key" @click="doAlert(key)">
+      <button v-for="(value, key) in alerts" :key="key" @click="doAlert(key)">
         {{ getAlertText(key) }}
       </button>
     </div>
@@ -31,33 +30,40 @@
     </div>
     <div>
       <h2>Modal</h2>
-      <button @click="modal=true">Show Modal</button>
-      <unrest-modal v-if="modal" :close="() => modal=false" title="This is a modal">Woo</unrest-modal>
+      <button @click="modal = true">Show Modal</button>
+      <unrest-modal v-if="modal" :close="() => (modal = false)" title="This is a modal"
+        >Woo</unrest-modal
+      >
     </div>
     <div>
       <h2>Markdown</h2>
       <unrest-markdown
-        :source="`
+        :source="
+          `
                  Markdown
 
                  Markdown support via [Marked](marked.js.org).
-                 `"
-        />
+                 `
+        "
+      />
       <p>Markdown can be <unrest-markdown :inline="true" source="**inline**" /></p>
-      <unrest-markdown :dedent="false" source="        unrest-markdown tags default to dedent. It can be disabled." />
+      <unrest-markdown
+        :dedent="false"
+        source="        unrest-markdown tags default to dedent. It can be disabled."
+      />
     </div>
     <unrest-ui />
   </div>
 </template>
 
 <script>
-import { markRaw } from 'vue';
-import UnrestVue from '@unrest/vue';
+import { markRaw } from 'vue'
+import UnrestVue from '@unrest/vue'
 
-import FunctionalComponent from './components/FunctionalComponent';
-import SingleFileComponent from './components/SingleFileComponent';
+import FunctionalComponent from './components/FunctionalComponent'
+import SingleFileComponent from './components/SingleFileComponent'
 
-const { ui } = UnrestVue;
+const { ui } = UnrestVue
 
 const alerts = {
   text: 'Text only alert',
@@ -86,15 +92,14 @@ const dropdown_items = [
   'string',
   { text: 'This is text' },
   { text: 'This item has an icon', icon: 'birthday-cake' },
-  { text: 'This item has an click', click: () => ui.alert('You clicked the dropdown!') }
+  { text: 'This item has an click', click: () => ui.alert('You clicked the dropdown!') },
 ]
 
 export default {
-  components: { FunctionalComponent, SingleFileComponent },
   data() {
-    const select_items = ['red', 'green', 'blue'].map(color => ({
+    const select_items = ['red', 'green', 'blue'].map((color) => ({
       text: color,
-      click: () => this.selected_color = color
+      click: () => (this.selected_color = color),
     }))
 
     return {
@@ -121,7 +126,7 @@ export default {
     },
     doAlert(key) {
       this.$ui.alert(alerts[key])
-    }
-  }
+    },
+  },
 }
 </script>
