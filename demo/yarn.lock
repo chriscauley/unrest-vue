@@ -1095,10 +1095,10 @@
     eslint-plugin-vue "^7.0.0-0"
     prettier "^1.18.2"
 
-"@unrest/vue-reactive-storage@^0.0.1":
+"@unrest/vue-storage@^0.0.1":
   version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@unrest/vue-reactive-storage/-/vue-reactive-storage-0.0.1.tgz#b31d4e1f52045ec20a49b31cd5e6afbd0dbb29fa"
-  integrity sha512-PHx16mjmITO8k4a5jKw4OdjKIljvQcFUIfLtJMXuPSESua7lfnJ+aSt+9irpWpLbAI7jXg+GMc2kv2PVunSp2w==
+  resolved "https://registry.yarnpkg.com/@unrest/vue-storage/-/vue-storage-0.0.1.tgz#f37797fb30447a67ed4c00ecccf09bc0c1a5ec26"
+  integrity sha512-c9KYAZ5IgA77jP/375P7OaMjojuuR98LqFxvgT/Pnz5HrsS39H2mJgWeEhMZ08WC3XXupDdqelDJfhGI+fc6XA==
   dependencies:
     axios "^0.21.1"
     core-js "^3.6.5"

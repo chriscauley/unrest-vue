@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { ReactiveRestApi } from '@unrest/vue-reactive-storage'
+import { ReactiveRestApi } from '@unrest/vue-storage'
 
 const api = ReactiveRestApi({})
 
