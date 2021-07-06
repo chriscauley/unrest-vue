@@ -10,11 +10,11 @@ export default defineConfig({
       name: '@unrest/vue'
     },
     rollupOptions: {
-      external: ['vue', '@popperjs/core', '@unrest/vue-reactive-storage'],
+      external: ['vue', '@popperjs/core', '@unrest/vue-storage'],
       output: {
         globals: {
           vue: 'Vue',
-          '@unrest/vue-reactive-storage': '@unrest/vue-reactive-storage',
+          '@unrest/vue-storage': '@unrest/vue-storage',
           '@popperjs/core': '@popperjs/core',
         }
       }
