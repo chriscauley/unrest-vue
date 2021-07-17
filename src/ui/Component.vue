@@ -30,18 +30,6 @@
 <script>
 import store from './store'
 
-const prepAlert = (alert) => {
-  if (!alert) return
-  if (alert.render || typeof alert === 'function') {
-    alert = { tagName: alert }
-  }
-  if (typeof alert === 'string') {
-    alert = { text: alert }
-  }
-  alert.tagName = alert.tagName || 'div'
-  return alert
-}
-
 const prepConfirm = (confirm) => {
   if (!confirm) return
 }
@@ -51,7 +39,7 @@ const noop = () => {}
 export default {
   computed: {
     toasts: () => store.state.toasts.filter((t) => !t.hidden),
-    alert: () => prepAlert(store.state.alert),
+    alert: () => store.state.alert,
     confirm: () => prepConfirm(store.state.confirm),
     actions() {
       const actions = this.alert.actions || [

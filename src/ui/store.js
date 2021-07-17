@@ -1,4 +1,4 @@
-import { reactive } from 'vue'
+import { reactive, markRaw } from 'vue'
 
 const TOAST_DELAY = 1e4 // 10s
 const LEVELS = ['success', 'error', 'info', 'warn', 'todo']
@@ -27,7 +27,19 @@ toast.hide = hideToast
 toast.LEVELS = LEVELS
 LEVELS.forEach((level) => (toast[level] = (text) => addToast({ level, text })))
 
-const alert = (message) => (state.alert = message)
+const alert = (message) => (state.alert = prepAlert(message))
 const confirm = (confirm) => (state.confirm = confirm)
+
+const prepAlert = (alert) => {
+  if (!alert) return
+  if (alert.render || typeof alert === 'function') {
+    alert = { tagName: markRaw(alert) }
+  }
+  if (typeof alert === 'string') {
+    alert = { text: alert }
+  }
+  alert.tagName = alert.tagName || 'div'
+  return alert
+}
 
 export default { toast, alert, confirm, state }

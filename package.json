@@ -24,7 +24,7 @@
   },
   "peerDependencies": {
     "@popperjs/core": "^2.8.6",
-    "@unrest/vue-storage": "^0.0.1",
+    "@unrest/vue-storage": "^0.0.4",
     "vue": "^3.0.5"
   },
   "devDependencies": {
