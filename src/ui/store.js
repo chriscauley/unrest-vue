@@ -20,7 +20,7 @@ const addToast = ({ text, level, delay = TOAST_DELAY }) => {
   delay && setTimeout(() => hideToast({ id }), delay)
 }
 
-const toast = text => addToast({ text, level: 'info' })
+const toast = text => addToast(typeof text === 'string' ? { text, level: 'info' } : text)
 
 toast.add = addToast
 toast.hide = hideToast

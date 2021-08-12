@@ -40,11 +40,6 @@ export const prepSchema = schema => {
     schema.properties.photo_url.type = 'image'
     schema.properties.photo_url.title = 'Photo'
   }
-  Object.values(schema.properties).forEach(property => {
-    if (property.__widget === 'HiddenInput') {
-      property.ui = { tagName: 'ur-hidden' }
-    }
-  })
   return schema
 }
 
