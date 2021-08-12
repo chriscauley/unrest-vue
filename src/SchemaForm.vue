@@ -24,21 +24,9 @@
 
 <script>
 import { ReactiveRestApi } from '@unrest/vue-storage'
+import cloneDeep from 'lodash.clonedeep'
 
 const api = ReactiveRestApi({})
-
-// https://stackoverflow.com/a/40722084/266564
-const cloneDeep = (obj) => {
-  const newObj = {}
-  Object.keys(obj).forEach((key) => {
-    if (typeof obj[key] === 'object' && Object.keys(obj[key]).length) {
-      newObj[key] = cloneDeep(obj[key])
-    } else {
-      newObj[key] = obj[key]
-    }
-  })
-  return Object.assign({}, newObj)
-}
 
 const getSchema = (form_name) => api.get(`${form_name}/?schema=1`)?.schema
 
