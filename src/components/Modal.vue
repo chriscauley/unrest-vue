@@ -1,6 +1,6 @@
 <template>
   <div class="modal">
-    <div class="modal-mask" @click="close" />
+    <div class="modal-mask" @click="$emit('close')" />
     <div class="modal-content">
       <div class="modal-header" v-if="title">
         <div class="modal-title" v-if="title">
@@ -12,7 +12,7 @@
       </div>
       <div class="modal-footer">
         <slot name="actions">
-          <button class="btn -secondary" @click="close">Close</button>
+          <button class="btn -secondary" @click="$emit('close')">Close</button>
         </slot>
       </div>
     </div>
@@ -22,8 +22,13 @@
 <script>
 export default {
   props: {
-    close: Function,
+    onClose: Function,
     title: String,
   },
+  mounted() {
+    if (this.$attrs.close) {
+      console.error('DEPRECATION ERROR: Use @close in modal instead of :close')
+    }
+  }
 }
 </script>

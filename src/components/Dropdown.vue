@@ -3,7 +3,7 @@
     <slot>
       <div class="ur-dropdown__trigger">{{ title }}</div>
     </slot>
-    <ur-popper v-if="focused" class="popdown" :placement="placement">
+    <ur-popper v-if="focused" class="popdown" :placement="placement" :offset="offset">
       <slot name="content">
         <div class="dropdown-items" v-if="items?.length">
           <div
@@ -62,6 +62,12 @@ export default {
     items: Array,
     placement: String,
     title: String,
+    offset: [Array, String],
+  },
+  mounted() {
+    if (this.title) {
+      console.warn("UnrestDropdown.title is deprecated. Use default slot instead")
+    }
   },
   computed: {
     preppedItems() {
