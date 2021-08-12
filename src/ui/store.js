@@ -20,17 +20,17 @@ const addToast = ({ text, level, delay = TOAST_DELAY }) => {
   delay && setTimeout(() => hideToast({ id }), delay)
 }
 
-const toast = (text) => addToast({ text, level: 'info' })
+const toast = text => addToast({ text, level: 'info' })
 
 toast.add = addToast
 toast.hide = hideToast
 toast.LEVELS = LEVELS
-LEVELS.forEach((level) => (toast[level] = (text) => addToast({ level, text })))
+LEVELS.forEach(level => (toast[level] = text => addToast({ level, text })))
 
-const alert = (message) => (state.alert = prepAlert(message))
-const confirm = (confirm) => (state.confirm = confirm)
+const alert = message => (state.alert = prepAlert(message))
+const confirm = confirm => (state.confirm = confirm)
 
-const prepAlert = (alert) => {
+const prepAlert = alert => {
   if (!alert) return
   if (alert.render || typeof alert === 'function') {
     alert = { tagName: markRaw(alert) }

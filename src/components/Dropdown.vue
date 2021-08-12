@@ -26,7 +26,7 @@
 import FocusMixin from '../FocusMixin'
 import UrPopper from './Popper.vue'
 
-const prepItem = (item) => {
+const prepItem = item => {
   if (typeof item === 'string') {
     item = { text: item, to: item }
   }
@@ -64,15 +64,15 @@ export default {
     title: String,
     offset: [Array, String],
   },
-  mounted() {
-    if (this.title) {
-      console.warn("UnrestDropdown.title is deprecated. Use default slot instead")
-    }
-  },
   computed: {
     preppedItems() {
       return this.items.map(prepItem)
     },
+  },
+  mounted() {
+    if (this.title) {
+      console.warn('UnrestDropdown.title is deprecated. Use default slot instead')
+    }
   },
 }
 </script>

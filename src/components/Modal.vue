@@ -25,10 +25,11 @@ export default {
     onClose: Function,
     title: String,
   },
+  emits: ['close'],
   mounted() {
     if (this.$attrs.close) {
       console.error('DEPRECATION ERROR: Use @close in modal instead of :close')
     }
-  }
+  },
 }
 </script>
