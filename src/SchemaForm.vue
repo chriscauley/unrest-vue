@@ -5,6 +5,7 @@
     v-bind="$attrs"
     :onSubmit="submit"
     :errors="errors"
+    @error="onError"
   >
     <template #actions>
       <button type="submit" class="btn -primary">Submit</button>
@@ -48,6 +49,7 @@ export default {
     form_name: String, // eslint-disable-line
     success: Function,
     onDelete: Function,
+    onError: Function,
   },
   data() {
     return { errors: null, loading: false, confirming_delete: false }
