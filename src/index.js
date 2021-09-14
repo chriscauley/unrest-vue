@@ -4,6 +4,7 @@ import Popper from './components/Popper.vue'
 import SchemaForm from './SchemaForm.vue'
 import FocusMixin from './FocusMixin'
 import Marked from './Marked'
+import Store from './Store'
 import ui from './ui'
 import { applyMeta, loadViews } from './router'
 
@@ -16,6 +17,7 @@ export default {
   ui,
   applyMeta,
   loadViews,
+  Store,
 
   plugin: {
     install(app) {
