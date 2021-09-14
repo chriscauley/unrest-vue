@@ -1,3 +1,4 @@
+import admin from './admin'
 import Dropdown from './components/Dropdown.vue'
 import Modal from './components/Modal.vue'
 import Popper from './components/Popper.vue'
@@ -9,6 +10,7 @@ import ui from './ui'
 import { applyMeta, loadViews } from './router'
 
 export default {
+  admin,
   Popper,
   Dropdown,
   Modal,

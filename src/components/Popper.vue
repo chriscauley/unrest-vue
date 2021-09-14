@@ -9,15 +9,19 @@ import { createPopper } from '@popperjs/core'
 
 export default {
   props: {
-    target: Object, // DOM element
+    target: [Object, String], // DOM element
     placement: String,
     offset: [Array, String], // [ skid, distance ]
+    watchme: [String, Number],
   },
   data() {
     return { popper: null }
   },
   watch: {
     target: 'reset',
+    watchme() {
+      this.popper.forceUpdate()
+    },
   },
   mounted() {
     this.reset()
