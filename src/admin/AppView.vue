@@ -1,5 +1,6 @@
 <template>
   <div>
+    <breadcrumbs />
     <app-box v-if="app" :app="app" />
   </div>
 </template>
@@ -7,9 +8,10 @@
 <script>
 import store from './store'
 import AppBox from './AppBox.vue'
+import Breadcrumbs from './Breadcrumbs.vue'
 
 export default {
-  components: { AppBox },
+  components: { AppBox, Breadcrumbs },
   __route: {
     path: '/admin/:app_label/',
     meta: {

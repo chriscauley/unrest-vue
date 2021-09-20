@@ -1,5 +1,6 @@
 <template>
   <div v-if="model">
+    <breadcrumbs />
     <h2>{{ model.verbose }}</h2>
     <table class="table">
       <thead>
@@ -31,7 +32,9 @@
 </template>
 
 <script>
+import Breadcrumbs from './Breadcrumbs.vue'
 import store from './store'
+
 const toAttrs = value => {
   if (!value?.attrs && typeof value?.text === undefined) {
     // value is a primative (string, array, or number)
@@ -45,6 +48,7 @@ export default {
   __route: {
     path: '/admin/:app_label/:model_name/',
   },
+  components: { Breadcrumbs },
   data() {
     return { store }
   },

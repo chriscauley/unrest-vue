@@ -50,6 +50,9 @@ export default {
   getApps: () => registry.apps,
   listApps: () => Object.values(registry.apps),
   getApp: app_label => {
+    if (!registry.apps[app_label]) {
+      throw 'Cannot find app: ' + app_label
+    }
     return registry.apps[app_label]
   },
   getModel(app_label, model_name) {
@@ -58,6 +61,10 @@ export default {
       model_name = app_label.model_name
       app_label = app_label.app_label
     }
-    return registry[`${app_label}/${model_name}`]
+    const model = registry[`${app_label}/${model_name}`]
+    if (!model) {
+      throw `Model does not exist in admin registry: ${app_label}/${model_name}`
+    }
+    return model
   },
 }
