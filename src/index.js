@@ -1,4 +1,5 @@
 import admin from './admin'
+import Draggable from './components/Draggable.vue'
 import Dropdown from './components/Dropdown.vue'
 import Modal from './components/Modal.vue'
 import Popper from './components/Popper.vue'
@@ -12,6 +13,7 @@ import { applyMeta, loadViews } from './router'
 export default {
   admin,
   Popper,
+  Draggable,
   Dropdown,
   Modal,
   SchemaForm,
@@ -24,6 +26,7 @@ export default {
   plugin: {
     install(app) {
       app.component('UnrestPopper', Popper)
+      app.component('UnrestDraggable', Draggable)
       app.component('UnrestDropdown', Dropdown)
       app.component('UnrestModal', Modal)
       app.component('UnrestSchemaForm', SchemaForm)
