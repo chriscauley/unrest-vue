@@ -1,5 +1,5 @@
 <template>
-  <div :class="state ? 'ur-dragging' : ''" @mousedown.capture="start">
+  <div :class="css" @mousedown.capture="start">
     <slot />
   </div>
 </template>
@@ -12,12 +12,18 @@ export default {
       state: null,
     }
   },
+  computed: {
+    css() {
+      return ['unrest-draggable', this.state && '-dragging']
+    }
+  },
   methods: {
     drag(event) {
       const new_xy = [event.pageX, event.pageY]
       this.state.last_dxy = [new_xy[0] - this.state.xy[0], new_xy[1] - this.state.xy[1]]
       this.state.xy = new_xy
-      this.$emit('drag', this.state, event)
+      event._drag = this.state
+      this.$emit('drag', event)
     },
     start(event) {
       event.preventDefault()
@@ -28,13 +34,15 @@ export default {
         xy_start: [event.pageX, event.pageY],
         xy: [event.pageX, event.pageY],
       }
-      this.$emit('dragstart', this.state, event)
+      event._drag = this.state
+      this.$emit('dragstart', event)
       this.drag(event)
     },
     stop(event) {
       window.removeEventListener('mouseup', this.stop)
       window.removeEventListener('mousemove', this.drag)
-      this.$emit('dragend', this.state, event)
+      event._drag = this.state
+      this.$emit('dragend', event)
       this.state = null
       document.body.classList.remove('unrest-dragging')
     },
