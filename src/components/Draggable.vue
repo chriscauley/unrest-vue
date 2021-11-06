@@ -15,7 +15,7 @@ export default {
   computed: {
     css() {
       return ['unrest-draggable', this.state && '-dragging']
-    }
+    },
   },
   methods: {
     drag(event) {
@@ -26,6 +26,10 @@ export default {
       this.$emit('drag', event)
     },
     start(event) {
+      if (event.button === 2) {
+        // ignore right click
+        return
+      }
       event.preventDefault()
       window.addEventListener('mouseup', this.stop)
       window.addEventListener('mousemove', this.drag)
