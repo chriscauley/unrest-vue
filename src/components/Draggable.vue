@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     drag(event) {
-      const new_xy = [event.pageX, event.pageY]
+      const new_xy = [event.clientX, event.clientY]
       this.state.last_dxy = [new_xy[0] - this.state.xy[0], new_xy[1] - this.state.xy[1]]
       this.state.xy = new_xy
       event._drag = this.state
@@ -35,8 +35,8 @@ export default {
       window.addEventListener('mousemove', this.drag)
       document.body.classList.add('unrest-dragging')
       this.state = {
-        xy_start: [event.pageX, event.pageY],
-        xy: [event.pageX, event.pageY],
+        xy_start: [event.clientX, event.clientY],
+        xy: [event.clientX, event.clientY],
       }
       event._drag = this.state
       this.$emit('dragstart', event)
