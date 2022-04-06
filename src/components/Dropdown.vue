@@ -48,7 +48,8 @@ const prepItem = item => {
     item.tagName = 'a'
   }
   if (item.click) {
-    attrs.onclick = item.click
+    // TODO item.onClick
+    attrs.onClick = item.click
     attrs.class.push('cursor-pointer')
   }
   item.key = item.key || item.text || item.icon

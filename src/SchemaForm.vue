@@ -47,7 +47,7 @@ export const prepSchema = schema => {
 export default {
   props: {
     form_name: String, // eslint-disable-line
-    success: Function,
+    success: Function, // TODO onSuccess
     onDelete: Function,
     onError: Function,
   },

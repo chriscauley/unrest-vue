@@ -8,6 +8,7 @@ import FocusMixin from './FocusMixin'
 import Marked from './Marked'
 import Store from './Store'
 import ui from './ui'
+import { timeit } from './utils'
 import { applyMeta, loadViews } from './router'
 
 export default {
@@ -18,6 +19,7 @@ export default {
   Modal,
   SchemaForm,
   FocusMixin,
+  timeit,
   ui,
   applyMeta,
   loadViews,
