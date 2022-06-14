@@ -1,8 +1,8 @@
 <template>
   <div class="toast-list">
     <div v-for="toast in toasts" :key="toast.id" :class="`toast -${toast.level}`">
-      <div class="text">
-        {{ toast.text }}
+      <div class="text" v-is="toast.tagName">
+        {{ toast.value }}
       </div>
       <i class="fa fa-close" @click="hideToast(toast)" />
     </div>
