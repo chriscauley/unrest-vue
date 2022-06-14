@@ -51,6 +51,7 @@ export default {
     success: Function, // TODO onSuccess
     onDelete: Function,
     onError: Function,
+    prepSchema: Function,
   },
   data() {
     return { errors: null, loading: false, confirming_delete: false }
@@ -60,8 +61,15 @@ export default {
       return this.schema?.properties.name.default
     },
     schema() {
-      const schema = getSchema(this.form_name)
-      return schema && prepSchema(schema)
+      let schema = getSchema(this.form_name)
+      if (!schema) {
+        return null
+      }
+      schema = prepSchema(schema)
+      if (this.prepSchema) {
+        schema = this.prepSchema(schema) || schema
+      }
+      return schema
     },
   },
   methods: {
