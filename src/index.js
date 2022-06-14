@@ -16,6 +16,7 @@ export default {
   Popper,
   Draggable,
   Dropdown,
+  Marked,
   Modal,
   SchemaForm,
   FocusMixin,
