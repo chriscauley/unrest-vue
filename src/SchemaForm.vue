@@ -10,6 +10,7 @@
     <template #actions>
       <button type="submit" class="btn -primary">Submit</button>
       <div v-if="onDelete" class="btn -danger" @click="confirming_delete = true">Delete</div>
+      <slot name="extra_actions" />
     </template>
   </unrest-form>
   <div v-else-if="confirming_delete">

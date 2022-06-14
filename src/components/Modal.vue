@@ -10,9 +10,10 @@
       <div class="modal-body">
         <slot />
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer" v-if="!hide_actions">
         <slot name="actions">
           <button class="btn -secondary" @click="$emit('close')">Close</button>
+          <slot name="extra_actions" />
         </slot>
       </div>
     </div>
@@ -24,6 +25,7 @@ export default {
   props: {
     onClose: Function,
     title: String,
+    hide_actions: Boolean,
   },
   emits: ['close'],
   mounted() {
