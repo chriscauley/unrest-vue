@@ -2,6 +2,7 @@ import dedent from 'dedent'
 import { marked } from 'marked'
 
 export default {
+  name: 'UnrestMarked',
   props: {
     options: Object,
     dedent: {

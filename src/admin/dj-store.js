@@ -6,13 +6,13 @@ import startCase from 'lodash.startcase'
 
 const _model_stores = {}
 
-const fromServer = data => {
+const fromServer = (data) => {
   const { _registry } = store.state
-  Object.values(data.apps).forEach(app => {
+  Object.values(data.apps).forEach((app) => {
     app.verbose = startCase(app.app_label)
     _registry.apps[app.app_label] = app
     _registry.models[app.app_label] = {}
-    app.models.forEach(model => {
+    app.models.forEach((model) => {
       const { app_label, model_name } = model
       _registry.models[app_label][model_name] = model
       model.verbose = startCase(model.verbose || model_name)

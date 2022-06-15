@@ -11,6 +11,7 @@ import Breadcrumbs from './Breadcrumbs.vue'
 import store from './store'
 
 export default {
+  name: 'AdminHome',
   __route: {
     path: '/admin/',
   },

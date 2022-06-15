@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'UnrestDraggable',
   emits: ['dragstart', 'drag', 'dragend'],
   data() {
     return {

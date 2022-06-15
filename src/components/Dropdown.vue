@@ -26,7 +26,7 @@
 import FocusMixin from '../FocusMixin'
 import UrPopper from './Popper.vue'
 
-const prepItem = item => {
+const prepItem = (item) => {
   if (typeof item === 'string') {
     item = { text: item, to: item }
   }
@@ -57,6 +57,7 @@ const prepItem = item => {
 }
 
 export default {
+  name: 'UnrestDropdown',
   components: { UrPopper },
   mixins: [FocusMixin],
   props: {

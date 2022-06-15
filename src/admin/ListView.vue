@@ -32,10 +32,10 @@
 </template>
 
 <script>
-import Breadcrumbs from './Breadcrumbs.vue'
+import AdminBreadcrumbs from './Breadcrumbs.vue'
 import store from './store'
 
-const toAttrs = value => {
+const toAttrs = (value) => {
   if (!value?.attrs && typeof value?.text === undefined) {
     // value is a primative (string, array, or number)
     value = { text: value }
@@ -48,7 +48,7 @@ export default {
   __route: {
     path: '/admin/:app_label/:model_name/',
   },
-  components: { Breadcrumbs },
+  components: { AdminBreadcrumbs },
   data() {
     return { store }
   },
@@ -65,7 +65,7 @@ export default {
   },
   methods: {
     getColumns(item) {
-      return this.columns.map(c => toAttrs(c.get(item)))
+      return this.columns.map((c) => toAttrs(c.get(item)))
     },
   },
 }

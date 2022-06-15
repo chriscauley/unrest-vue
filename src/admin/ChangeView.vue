@@ -1,16 +1,16 @@
 <template>
   <div class="">
-    <breadcrumbs />
+    <admin-breadcrumbs />
     <unrest-form v-if="schema" :schema="schema" :state="state" @submit="submit" />
   </div>
 </template>
 
 <script>
-import Breadcrumbs from './Breadcrumbs.vue'
+import AdminBreadcrumbs from './Breadcrumbs.vue'
 import store from './store'
 
 export default {
-  components: { Breadcrumbs },
+  components: { AdminBreadcrumbs },
   __route: {
     path: '/admin/:app_label/:model_name/:object_id/',
   },
@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     submit(state) {
-      this.model.save(state).then(data => {
+      this.model.save(state).then((data) => {
         this.$ui.toast(`${this.model.verbose} saved.`)
         if (!state.id) {
           const { app_label, model_name } = this.$route.params

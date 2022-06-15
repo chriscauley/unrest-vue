@@ -8,6 +8,7 @@
 import { createPopper } from '@popperjs/core'
 
 export default {
+  name: 'UnrestPopper',
   props: {
     target: [Object, String], // DOM element
     placement: String,

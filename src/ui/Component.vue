@@ -30,7 +30,7 @@
 <script>
 import store from './store'
 
-const prepConfirm = confirm => {
+const prepConfirm = (confirm) => {
   if (!confirm) return
 }
 
@@ -38,7 +38,7 @@ const noop = () => {}
 
 export default {
   computed: {
-    toasts: () => store.state.toasts.filter(t => !t.hidden),
+    toasts: () => store.state.toasts.filter((t) => !t.hidden),
     alert: () => store.state.alert,
     confirm: () => prepConfirm(store.state.confirm),
     actions() {
@@ -48,7 +48,7 @@ export default {
           text: 'Ok',
         },
       ]
-      actions.forEach(action => (action.class = action.class || 'btn btn-primary'))
+      actions.forEach((action) => (action.class = action.class || 'btn btn-primary'))
       return actions
     },
     modal_style() {

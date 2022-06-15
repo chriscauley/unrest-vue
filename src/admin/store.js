@@ -9,14 +9,14 @@ const makeAdminOptions = (options = {}) => {
   const { list_display = ['id'], schema, getSchema = () => schema } = options
   return {
     getSchema,
-    list_display: list_display.map(o => {
+    list_display: list_display.map((o) => {
       if (typeof o === 'function') {
         return { name: startCase(o.name), get: o }
       } else if (typeof o === 'string') {
         const name = o
         return {
           name: startCase(o),
-          get: item => ({ text: item[name] }),
+          get: (item) => ({ text: item[name] }),
         }
       }
       return o
@@ -49,7 +49,7 @@ export default {
   register,
   getApps: () => registry.apps,
   listApps: () => Object.values(registry.apps),
-  getApp: app_label => {
+  getApp: (app_label) => {
     if (!registry.apps[app_label]) {
       throw 'Cannot find app: ' + app_label
     }

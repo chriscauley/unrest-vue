@@ -22,6 +22,7 @@
 
 <script>
 export default {
+  name: 'UnrestModal',
   props: {
     onClose: Function,
     title: String,

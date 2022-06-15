@@ -12,6 +12,7 @@
 import startCase from 'lodash.startcase'
 
 export default {
+  name: 'AdminBreadcrumbs',
   props: {
     names: [String, Array],
   },
@@ -20,7 +21,7 @@ export default {
       const parts = this.$route.path.split('/').filter(Boolean)
       let { names = parts.map(startCase) } = this
       names = names === 'string' ? names.split('|') : names
-      const _to = i => `/${parts.slice(0, i + 1).join('/')}/`
+      const _to = (i) => `/${parts.slice(0, i + 1).join('/')}/`
       return names.map((text, i) => ({ text, to: _to(i) }))
     },
   },

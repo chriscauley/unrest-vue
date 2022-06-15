@@ -1,9 +1,9 @@
-export default modules => {
+export default (modules) => {
   const store = {
     list: [],
     install: (app, _options) => {
       app.config.globalProperties.$store = store
-      store.list.forEach(m => m.init?.())
+      store.list.forEach((m) => m.init?.())
     },
     register: (name, module) => {
       store[name] = module({ store })
