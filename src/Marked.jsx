@@ -1,5 +1,5 @@
 import dedent from 'dedent'
-import marked from 'marked'
+import { marked } from 'marked'
 
 export default {
   props: {
