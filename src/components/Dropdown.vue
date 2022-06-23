@@ -71,10 +71,5 @@ export default {
       return this.items.map(prepItem)
     },
   },
-  mounted() {
-    if (this.title) {
-      console.warn('UnrestDropdown.title is deprecated. Use default slot instead')
-    }
-  },
 }
 </script>

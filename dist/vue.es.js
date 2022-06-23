@@ -24,10 +24,10 @@ var _export_sfc = (sfc, props) => {
   }
   return target;
 };
-const _sfc_main$b = {
+const _sfc_main$c = {
   props: { app: Object }
 };
-function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_router_link = resolveComponent("router-link");
   return openBlock(), createElementBlock("div", null, [
     createElementVNode("h2", null, [
@@ -58,7 +58,7 @@ function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ]);
 }
-var AppBox = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$b]]);
+var AppBox = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$c]]);
 var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
 var INFINITY = 1 / 0;
 var symbolTag = "[object Symbol]";
@@ -388,7 +388,7 @@ function words(string, pattern, guard) {
   return string.match(pattern) || [];
 }
 var lodash_startcase = startCase;
-const _sfc_main$a = {
+const _sfc_main$b = {
   name: "AdminBreadcrumbs",
   props: {
     names: [String, Array]
@@ -405,7 +405,7 @@ const _sfc_main$a = {
 };
 const _hoisted_1$7 = /* @__PURE__ */ createTextVNode(" / ");
 const _hoisted_2$5 = /* @__PURE__ */ createTextVNode(" / ");
-function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_router_link = resolveComponent("router-link");
   return openBlock(), createElementBlock("div", null, [
     _hoisted_1$7,
@@ -427,7 +427,7 @@ function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
     }), 128))
   ]);
 }
-var AdminBreadcrumbs = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$a]]);
+var AdminBreadcrumbs = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$b]]);
 const registry = {
   apps: {},
   models: {}
@@ -495,7 +495,7 @@ var store$1 = {
     return model;
   }
 };
-const _sfc_main$9 = {
+const _sfc_main$a = {
   name: "AdminHome",
   __route: {
     path: "/admin/"
@@ -507,7 +507,7 @@ const _sfc_main$9 = {
     }
   }
 };
-function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_breadcrumbs = resolveComponent("breadcrumbs");
   const _component_app_box = resolveComponent("app-box");
   return openBlock(), createElementBlock("div", null, [
@@ -520,8 +520,8 @@ function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
     }), 128))
   ]);
 }
-var AdminHome = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$9]]);
-const _sfc_main$8 = {
+var AdminHome = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$a]]);
+const _sfc_main$9 = {
   components: { AppBox, AdminBreadcrumbs },
   __route: {
     path: "/admin/:app_label/",
@@ -535,7 +535,7 @@ const _sfc_main$8 = {
     }
   }
 };
-function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_admin_breadcrumbs = resolveComponent("admin-breadcrumbs");
   const _component_app_box = resolveComponent("app-box");
   return openBlock(), createElementBlock("div", null, [
@@ -546,7 +546,7 @@ function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
     }, null, 8, ["app"])) : createCommentVNode("", true)
   ]);
 }
-var AppView = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$8]]);
+var AppView = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$9]]);
 const toAttrs = (value) => {
   if (!(value == null ? void 0 : value.attrs) && typeof (value == null ? void 0 : value.text) === void 0) {
     value = { text: value };
@@ -554,7 +554,7 @@ const toAttrs = (value) => {
   value.tagName = value.tagName || "div";
   return value;
 };
-const _sfc_main$7 = {
+const _sfc_main$8 = {
   __route: {
     path: "/admin/:app_label/:model_name/"
   },
@@ -584,7 +584,7 @@ const _hoisted_1$6 = { key: 0 };
 const _hoisted_2$4 = { class: "table" };
 const _hoisted_3$3 = /* @__PURE__ */ createElementVNode("th", null, null, -1);
 const _hoisted_4$3 = /* @__PURE__ */ createElementVNode("i", { class: "fa fa-edit" }, null, -1);
-function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_breadcrumbs = resolveComponent("breadcrumbs");
   const _component_router_link = resolveComponent("router-link");
   return $options.model ? (openBlock(), createElementBlock("div", _hoisted_1$6, [
@@ -643,8 +643,8 @@ function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["to"])
   ])) : createCommentVNode("", true);
 }
-var ListView = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$7]]);
-const _sfc_main$6 = {
+var ListView = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$8]]);
+const _sfc_main$7 = {
   components: { AdminBreadcrumbs },
   __route: {
     path: "/admin/:app_label/:model_name/:object_id/"
@@ -678,7 +678,7 @@ const _sfc_main$6 = {
   }
 };
 const _hoisted_1$5 = { class: "" };
-function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_admin_breadcrumbs = resolveComponent("admin-breadcrumbs");
   const _component_unrest_form = resolveComponent("unrest-form");
   return openBlock(), createElementBlock("div", _hoisted_1$5, [
@@ -691,10 +691,10 @@ function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
     }, null, 8, ["schema", "state", "onSubmit"])) : createCommentVNode("", true)
   ]);
 }
-var ChangeView = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render$6]]);
+var ChangeView = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$7]]);
 var views = { ListView, AdminHome, AppView, ChangeView };
 store$1.views = views;
-const _sfc_main$5 = {
+const _sfc_main$6 = {
   name: "UnrestDraggable",
   emits: ["dragstart", "drag", "dragend"],
   data() {
@@ -741,7 +741,7 @@ const _sfc_main$5 = {
     }
   }
 };
-function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", {
     class: normalizeClass($options.css),
     onMousedownCapture: _cache[0] || (_cache[0] = (...args) => $options.start && $options.start(...args))
@@ -749,7 +749,7 @@ function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
     renderSlot(_ctx.$slots, "default")
   ], 34);
 }
-var Draggable = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$5]]);
+var Draggable = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render$6]]);
 var FocusMixin = {
   data: () => ({ focused: false }),
   methods: {
@@ -772,7 +772,7 @@ var FocusMixin = {
     }
   }
 };
-const _sfc_main$4 = {
+const _sfc_main$5 = {
   name: "UnrestPopper",
   props: {
     target: [Object, String],
@@ -813,12 +813,12 @@ const _sfc_main$4 = {
   }
 };
 const _hoisted_1$4 = { class: "ur-popper" };
-function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$4, [
     renderSlot(_ctx.$slots, "default")
   ]);
 }
-var Popper = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$4]]);
+var Popper = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$5]]);
 const prepItem = (item) => {
   if (typeof item === "string") {
     item = { text: item, to: item };
@@ -847,7 +847,7 @@ const prepItem = (item) => {
   item.key = item.key || item.text || item.icon;
   return item;
 };
-const _sfc_main$3 = {
+const _sfc_main$4 = {
   name: "UnrestDropdown",
   components: { UrPopper: Popper },
   mixins: [FocusMixin],
@@ -861,11 +861,6 @@ const _sfc_main$3 = {
     preppedItems() {
       return this.items.map(prepItem);
     }
-  },
-  mounted() {
-    if (this.title) {
-      console.warn("UnrestDropdown.title is deprecated. Use default slot instead");
-    }
   }
 };
 const _hoisted_1$3 = { class: "ur-dropdown__trigger" };
@@ -873,7 +868,7 @@ const _hoisted_2$3 = {
   key: 0,
   class: "dropdown-items"
 };
-function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ur_popper = resolveComponent("ur-popper");
   return openBlock(), createElementBlock("div", {
     onClick: _cache[0] || (_cache[0] = (...args) => _ctx.toggleFocus && _ctx.toggleFocus(...args)),
@@ -915,8 +910,8 @@ function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["placement", "offset"])) : createCommentVNode("", true)
   ]);
 }
-var Dropdown = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render$3]]);
-const _sfc_main$2 = {
+var Dropdown = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$4]]);
+const _sfc_main$3 = {
   name: "UnrestModal",
   props: {
     onClose: Function,
@@ -945,7 +940,7 @@ const _hoisted_6$1 = {
   key: 1,
   class: "modal-footer"
 };
-function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$2, [
     createElementVNode("div", {
       class: "modal-mask",
@@ -970,7 +965,7 @@ function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ]);
 }
-var Modal = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["render", _sfc_render$2]]);
+var Modal = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["render", _sfc_render$3]]);
 var lodash_clonedeep = { exports: {} };
 (function(module, exports) {
   var LARGE_ARRAY_SIZE = 200;
@@ -1561,7 +1556,7 @@ const prepSchema = (schema) => {
   }
   return schema;
 };
-const _sfc_main$1 = {
+const _sfc_main$2 = {
   props: {
     form_name: String,
     success: Function,
@@ -1624,7 +1619,7 @@ const _hoisted_5$1 = {
   key: 2,
   class: "ur-placeholder"
 };
-function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_unrest_form = resolveComponent("unrest-form");
   return $options.schema && !$data.confirming_delete ? (openBlock(), createBlock(_component_unrest_form, mergeProps({
     key: 0,
@@ -1659,7 +1654,7 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ])) : (openBlock(), createElementBlock("div", _hoisted_5$1));
 }
-var SchemaForm = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["render", _sfc_render$1]]);
+var SchemaForm = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["render", _sfc_render$2]]);
 var dedent$1 = { exports: {} };
 (function(module) {
   function dedent2(strings) {
@@ -3683,8 +3678,8 @@ marked.walkTokens;
 marked.parseInline;
 Parser.parse;
 Lexer.lex;
-var Marked = {
-  name: "UnrestMarked",
+const _sfc_main$1 = {
+  name: "UnrestMarkdown",
   props: {
     options: Object,
     dedent: {
@@ -3694,17 +3689,21 @@ var Marked = {
     inline: Boolean,
     source: String
   },
-  render(props) {
-    const { options, inline: inline2, source } = props;
-    const text = props.dedent ? dedent(source) : source;
-    const innerHTML = (inline2 ? marked.parseInline : marked)(text, options);
-    return inline2 ? /* @__PURE__ */ React.createElement("span", {
-      innerHTML
-    }) : /* @__PURE__ */ React.createElement("div", {
-      innerHTML
-    });
+  computed: {
+    innerHTML() {
+      const { options, inline: inline2, source } = this;
+      const text = this.dedent ? dedent(source) : source;
+      return (inline2 ? marked.parseInline : marked)(text, options);
+    }
   }
 };
+function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createBlock(resolveDynamicComponent($props.inline ? "div" : "span"), {
+    innerHTML: $options.innerHTML,
+    class: "unrest-markdown"
+  }, null, 8, ["innerHTML"]);
+}
+var Markdown = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["render", _sfc_render$1]]);
 var Store = (modules) => {
   const store2 = {
     list: [],
@@ -9362,7 +9361,7 @@ var index = {
   Popper,
   Draggable,
   Dropdown,
-  Marked,
+  Markdown,
   Modal,
   SchemaForm,
   FocusMixin,
@@ -9378,7 +9377,7 @@ var index = {
       app.component("UnrestDropdown", Dropdown);
       app.component("UnrestModal", Modal);
       app.component("UnrestSchemaForm", SchemaForm);
-      app.component("UnrestMarkdown", Marked);
+      app.component("UnrestMarkdown", Markdown);
     }
   }
 };

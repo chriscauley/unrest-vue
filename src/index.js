@@ -5,7 +5,7 @@ import Modal from './components/Modal.vue'
 import Popper from './components/Popper.vue'
 import SchemaForm from './SchemaForm.vue'
 import FocusMixin from './FocusMixin'
-import Marked from './Marked'
+import Markdown from './Markdown.vue'
 import Store from './Store'
 import ui from './ui'
 import { timeit } from './utils'
@@ -16,7 +16,7 @@ export default {
   Popper,
   Draggable,
   Dropdown,
-  Marked,
+  Markdown,
   Modal,
   SchemaForm,
   FocusMixin,
@@ -33,7 +33,7 @@ export default {
       app.component('UnrestDropdown', Dropdown)
       app.component('UnrestModal', Modal)
       app.component('UnrestSchemaForm', SchemaForm)
-      app.component('UnrestMarkdown', Marked)
+      app.component('UnrestMarkdown', Markdown)
     },
   },
 }
