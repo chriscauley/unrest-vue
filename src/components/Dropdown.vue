@@ -27,6 +27,10 @@ import FocusMixin from '../FocusMixin'
 import UrPopper from './Popper.vue'
 
 const prepItem = (item) => {
+  if (typeof item === 'function') {
+    item = { tagName: item }
+  }
+
   if (typeof item === 'string') {
     item = { text: item, to: item }
   }

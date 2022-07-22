@@ -54,4 +54,4 @@ const prepAlert = (alert) => {
   return alert
 }
 
-export default { toast, alert, confirm, state }
+export default { alert, confirm, state, toast }
