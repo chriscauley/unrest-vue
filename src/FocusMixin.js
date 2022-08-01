@@ -9,11 +9,11 @@ export default {
         if (this.focused) {
           // TODO esc key should cancel focus
           document.removeEventListener('click', this.toggleFocus)
-          this.onFocus()
+          this.onBlur()
         } else if (!e.shiftKey && !e.ctrlKey) {
           // ctrl+shift+click locks dropdown open (for debugging)
           document.addEventListener('click', this.toggleFocus)
-          this.onBlur()
+          this.onFocus()
         }
         this.focused = !this.focused
       }

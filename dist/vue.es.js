@@ -762,10 +762,10 @@ var FocusMixin = {
         e.__dropdown_touched = e.__dropdown_touched || this;
         if (this.focused) {
           document.removeEventListener("click", this.toggleFocus);
-          this.onFocus();
+          this.onBlur();
         } else if (!e.shiftKey && !e.ctrlKey) {
           document.addEventListener("click", this.toggleFocus);
-          this.onBlur();
+          this.onFocus();
         }
         this.focused = !this.focused;
       }
