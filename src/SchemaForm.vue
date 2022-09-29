@@ -31,6 +31,7 @@ import cloneDeep from 'lodash.clonedeep'
 const api = ReactiveRestApi({})
 
 const getSchema = (form_name) => api.get(`${form_name}/?schema=1`)?.schema
+let warned = false
 
 export const prepSchema = (schema) => {
   schema = cloneDeep(schema)
@@ -48,11 +49,13 @@ export const prepSchema = (schema) => {
 export default {
   props: {
     form_name: String, // eslint-disable-line
-    success: Function, // TODO change to onSuccess and emit event instead
+    success: Function, // TODO remove this in next major version
+    onSuccess: Function,
     onDelete: Function,
     onError: Function,
     prepSchema: Function,
   },
+  emits: ['success'],
   data() {
     return { errors: null, loading: false, confirming_delete: false }
   },
@@ -72,6 +75,12 @@ export default {
       return schema
     },
   },
+  mounted() {
+    if (!warned && this.success) {
+      console.warn('UnrestForm.success is deprecated in favor of @success')
+      warned = true
+    }
+  },
   methods: {
     submit(state) {
       if (this.loading) {
@@ -88,7 +97,11 @@ export default {
         .then((result) => {
           this.loading = false
           api.markStale()
-          this.success?.(result)
+          if (this.success) {
+            this.success?.(result)
+          } else {
+            this.$emit('success', result)
+          }
         })
     },
     doDelete() {

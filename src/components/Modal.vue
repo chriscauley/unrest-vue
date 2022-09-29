@@ -3,7 +3,7 @@
     <div class="modal-mask" @click="$emit('close')" />
     <div class="modal-content">
       <div class="modal-header" v-if="title">
-        <div class="modal-title" v-if="title">
+        <div class="modal-title">
           {{ title }}
         </div>
       </div>

@@ -934,10 +934,7 @@ const _hoisted_3$2 = {
   key: 0,
   class: "modal-header"
 };
-const _hoisted_4$2 = {
-  key: 0,
-  class: "modal-title"
-};
+const _hoisted_4$2 = { class: "modal-title" };
 const _hoisted_5$2 = { class: "modal-body" };
 const _hoisted_6$1 = {
   key: 1,
@@ -951,7 +948,7 @@ function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     createElementVNode("div", _hoisted_2$2, [
       $props.title ? (openBlock(), createElementBlock("div", _hoisted_3$2, [
-        $props.title ? (openBlock(), createElementBlock("div", _hoisted_4$2, toDisplayString($props.title), 1)) : createCommentVNode("", true)
+        createElementVNode("div", _hoisted_4$2, toDisplayString($props.title), 1)
       ])) : createCommentVNode("", true),
       createElementVNode("div", _hoisted_5$2, [
         renderSlot(_ctx.$slots, "default")
@@ -1547,6 +1544,7 @@ const getSchema = (form_name) => {
   var _a;
   return (_a = api.get(`${form_name}/?schema=1`)) == null ? void 0 : _a.schema;
 };
+let warned = false;
 const prepSchema = (schema) => {
   schema = cloneDeep(schema);
   if (schema.properties.avatar_url) {
@@ -1563,10 +1561,12 @@ const _sfc_main$2 = {
   props: {
     form_name: String,
     success: Function,
+    onSuccess: Function,
     onDelete: Function,
     onError: Function,
     prepSchema: Function
   },
+  emits: ["success"],
   data() {
     return { errors: null, loading: false, confirming_delete: false };
   },
@@ -1587,6 +1587,12 @@ const _sfc_main$2 = {
       return schema;
     }
   },
+  mounted() {
+    if (!warned && this.success) {
+      console.warn("UnrestForm.success is deprecated in favor of @success");
+      warned = true;
+    }
+  },
   methods: {
     submit(state2) {
       if (this.loading) {
@@ -1601,7 +1607,11 @@ const _sfc_main$2 = {
         var _a;
         this.loading = false;
         api.markStale();
-        (_a = this.success) == null ? void 0 : _a.call(this, result);
+        if (this.success) {
+          (_a = this.success) == null ? void 0 : _a.call(this, result);
+        } else {
+          this.$emit("success", result);
+        }
       });
     },
     doDelete() {
