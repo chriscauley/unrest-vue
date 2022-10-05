@@ -1,7 +1,7 @@
 <template>
   <unrest-form
     v-if="schema && !confirming_delete"
-    :schema="schema"
+    :schema="preppedSchema"
     v-bind="$attrs"
     :onSubmit="submit"
     :errors="errors"
@@ -30,7 +30,6 @@ import cloneDeep from 'lodash.clonedeep'
 
 const api = ReactiveRestApi({})
 
-const getSchema = (form_name) => api.get(`${form_name}/?schema=1`)?.schema
 let warned = false
 
 export const prepSchema = (schema) => {
@@ -57,14 +56,14 @@ export default {
   },
   emits: ['success'],
   data() {
-    return { errors: null, loading: false, confirming_delete: false }
+    return { errors: null, loading: false, confirming_delete: false, schema: null }
   },
   computed: {
     name() {
       return this.schema?.properties.name.default
     },
-    schema() {
-      let schema = getSchema(this.form_name)
+    preppedSchema() {
+      let { schema } = this
       if (!schema) {
         return null
       }
@@ -80,6 +79,9 @@ export default {
       console.warn('UnrestForm.success is deprecated in favor of @success')
       warned = true
     }
+    api.fetch(`${this.form_name}/?schema=1`).then(({ schema }) => {
+      this.schema = schema
+    })
   },
   methods: {
     submit(state) {
@@ -96,7 +98,6 @@ export default {
         })
         .then((result) => {
           this.loading = false
-          api.markStale()
           if (this.success) {
             this.success?.(result)
           } else {

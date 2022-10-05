@@ -433,9 +433,9 @@ const registry = {
   models: {}
 };
 const makeAdminOptions = (options = {}) => {
-  const { list_display = ["id"], schema, getSchema: getSchema2 = () => schema } = options;
+  const { list_display = ["id"], schema, getSchema = () => schema } = options;
   return {
-    getSchema: getSchema2,
+    getSchema,
     list_display: list_display.map((o) => {
       if (typeof o === "function") {
         return { name: lodash_startcase(o.name), get: o };
@@ -1540,10 +1540,6 @@ var lodash_clonedeep = { exports: {} };
 })(lodash_clonedeep, lodash_clonedeep.exports);
 var cloneDeep = lodash_clonedeep.exports;
 const api = ReactiveRestApi({});
-const getSchema = (form_name) => {
-  var _a;
-  return (_a = api.get(`${form_name}/?schema=1`)) == null ? void 0 : _a.schema;
-};
 let warned = false;
 const prepSchema = (schema) => {
   schema = cloneDeep(schema);
@@ -1568,15 +1564,15 @@ const _sfc_main$2 = {
   },
   emits: ["success"],
   data() {
-    return { errors: null, loading: false, confirming_delete: false };
+    return { errors: null, loading: false, confirming_delete: false, schema: null };
   },
   computed: {
     name() {
       var _a;
       return (_a = this.schema) == null ? void 0 : _a.properties.name.default;
     },
-    schema() {
-      let schema = getSchema(this.form_name);
+    preppedSchema() {
+      let { schema } = this;
       if (!schema) {
         return null;
       }
@@ -1592,6 +1588,9 @@ const _sfc_main$2 = {
       console.warn("UnrestForm.success is deprecated in favor of @success");
       warned = true;
     }
+    api.fetch(`${this.form_name}/?schema=1`).then(({ schema }) => {
+      this.schema = schema;
+    });
   },
   methods: {
     submit(state2) {
@@ -1606,7 +1605,6 @@ const _sfc_main$2 = {
       }).then((result) => {
         var _a;
         this.loading = false;
-        api.markStale();
         if (this.success) {
           (_a = this.success) == null ? void 0 : _a.call(this, result);
         } else {
@@ -1634,13 +1632,14 @@ const _hoisted_5$1 = {
 };
 function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_unrest_form = resolveComponent("unrest-form");
-  return $options.schema && !$data.confirming_delete ? (openBlock(), createBlock(_component_unrest_form, mergeProps({
+  return $data.schema && !$data.confirming_delete ? (openBlock(), createBlock(_component_unrest_form, mergeProps({
     key: 0,
-    schema: $options.schema
+    schema: $options.preppedSchema
   }, _ctx.$attrs, {
     onSubmit: $options.submit,
     errors: $data.errors,
-    onError: $props.onError
+    onError: $props.onError,
+    class: "wtf"
   }), {
     actions: withCtx(() => [
       _hoisted_1$1,
