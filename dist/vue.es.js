@@ -926,6 +926,10 @@ const _sfc_main$3 = {
     if (this.$attrs.close) {
       console.error("DEPRECATION ERROR: Use @close in modal instead of :close");
     }
+    const buttons = this.$el.querySelectorAll("button");
+    if (buttons.length && this.$el.querySelectorAll(":focus").length === 0) {
+      buttons && buttons[buttons.length - 1].focus();
+    }
   }
 };
 const _hoisted_1$2 = { class: "modal" };
@@ -3804,9 +3808,6 @@ const _sfc_main = {
     },
     modal_style() {
       return this.alert.width ? `width: ${this.alert.width}px` : "";
-    },
-    modal_class() {
-      return `modal-content ${this.alert.class || ""}`;
     }
   },
   methods: {
@@ -3831,6 +3832,7 @@ const _hoisted_5 = {
 };
 const _hoisted_6 = ["onClick"];
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_unrest_modal = resolveComponent("unrest-modal");
   return openBlock(), createElementBlock(Fragment, null, [
     createElementVNode("div", _hoisted_1, [
       (openBlock(true), createElementBlock(Fragment, null, renderList($options.toasts, (toast2) => {
@@ -3851,48 +3853,46 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         ], 2);
       }), 128))
     ]),
-    $options.alert ? (openBlock(), createElementBlock("div", {
+    $options.alert ? (openBlock(), createBlock(_component_unrest_modal, {
       key: 0,
-      class: "modal",
-      onClose: _cache[1] || (_cache[1] = (...args) => $options.closeAlert && $options.closeAlert(...args))
-    }, [
-      createElementVNode("div", {
-        class: "modal-mask",
-        onClick: _cache[0] || (_cache[0] = (...args) => $options.closeAlert && $options.closeAlert(...args))
-      }),
-      (openBlock(), createBlock(resolveDynamicComponent($options.alert.tagName), {
-        class: normalizeClass($options.modal_class),
-        onClose: $options.closeAlert,
-        style: normalizeStyle($options.modal_style)
-      }, {
-        default: withCtx(() => [
-          $options.alert.title ? (openBlock(), createElementBlock("h2", _hoisted_3, [
-            $options.alert.icon ? (openBlock(), createElementBlock("i", {
-              key: 0,
-              class: normalizeClass(`fa fa-${$options.alert.icon}`)
-            }, null, 2)) : createCommentVNode("", true),
-            createTextVNode(" " + toDisplayString($options.alert.title), 1)
-          ])) : createCommentVNode("", true),
-          createElementVNode("div", _hoisted_4, [
-            $options.alert.icon && !$options.alert.title ? (openBlock(), createElementBlock("i", {
-              key: 0,
-              class: normalizeClass(`fa fa-${$options.alert.icon}`)
-            }, null, 2)) : createCommentVNode("", true),
-            createTextVNode(" " + toDisplayString($options.alert.text), 1)
+      onClose: $options.closeAlert
+    }, {
+      actions: withCtx(() => [
+        (openBlock(true), createElementBlock(Fragment, null, renderList($options.actions, (action, i) => {
+          return openBlock(), createElementBlock("button", {
+            key: i,
+            class: normalizeClass(action.class),
+            onClick: action.click
+          }, toDisplayString(action.text), 11, _hoisted_6);
+        }), 128))
+      ]),
+      default: withCtx(() => [
+        (openBlock(), createBlock(resolveDynamicComponent($options.alert.tagName), {
+          class: normalizeClass($options.alert.class),
+          style: normalizeStyle($options.modal_style)
+        }, {
+          default: withCtx(() => [
+            $options.alert.title ? (openBlock(), createElementBlock("h2", _hoisted_3, [
+              $options.alert.icon ? (openBlock(), createElementBlock("i", {
+                key: 0,
+                class: normalizeClass(`fa fa-${$options.alert.icon}`)
+              }, null, 2)) : createCommentVNode("", true),
+              createTextVNode(" " + toDisplayString($options.alert.title), 1)
+            ])) : createCommentVNode("", true),
+            createElementVNode("div", _hoisted_4, [
+              $options.alert.icon && !$options.alert.title ? (openBlock(), createElementBlock("i", {
+                key: 0,
+                class: normalizeClass(`fa fa-${$options.alert.icon}`)
+              }, null, 2)) : createCommentVNode("", true),
+              createTextVNode(" " + toDisplayString($options.alert.text), 1)
+            ]),
+            $options.actions.length ? (openBlock(), createElementBlock("div", _hoisted_5)) : createCommentVNode("", true)
           ]),
-          $options.actions.length ? (openBlock(), createElementBlock("div", _hoisted_5, [
-            (openBlock(true), createElementBlock(Fragment, null, renderList($options.actions, (action, i) => {
-              return openBlock(), createElementBlock("button", {
-                key: i,
-                class: normalizeClass(action.class),
-                onClick: action.click
-              }, toDisplayString(action.text), 11, _hoisted_6);
-            }), 128))
-          ])) : createCommentVNode("", true)
-        ]),
-        _: 1
-      }, 40, ["class", "onClose", "style"]))
-    ], 32)) : createCommentVNode("", true)
+          _: 1
+        }, 8, ["class", "style"]))
+      ]),
+      _: 1
+    }, 8, ["onClose"])) : createCommentVNode("", true)
   ], 64);
 }
 var Component = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", _sfc_render]]);

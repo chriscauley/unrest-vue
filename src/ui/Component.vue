@@ -7,9 +7,8 @@
       <i class="fa fa-close" @click="hideToast(toast)" />
     </div>
   </div>
-  <div v-if="alert" class="modal" @close="closeAlert">
-    <div class="modal-mask" @click="closeAlert" />
-    <div :class="modal_class" v-is="alert.tagName" @close="closeAlert" :style="modal_style">
+  <unrest-modal v-if="alert" @close="closeAlert">
+    <div :class="alert.class" v-is="alert.tagName" :style="modal_style">
       <h2 v-if="alert.title" class="modal-title">
         <i :class="`fa fa-${alert.icon}`" v-if="alert.icon" />
         {{ alert.title }}
@@ -18,13 +17,14 @@
         <i :class="`fa fa-${alert.icon}`" v-if="alert.icon && !alert.title" />
         {{ alert.text }}
       </div>
-      <div class="modal-footer" v-if="actions.length">
-        <button v-for="(action, i) in actions" :key="i" :class="action.class" @click="action.click">
-          {{ action.text }}
-        </button>
-      </div>
+      <div class="modal-footer" v-if="actions.length"></div>
     </div>
-  </div>
+    <template #actions>
+      <button v-for="(action, i) in actions" :key="i" :class="action.class" @click="action.click">
+        {{ action.text }}
+      </button>
+    </template>
+  </unrest-modal>
 </template>
 
 <script>
@@ -53,9 +53,6 @@ export default {
     },
     modal_style() {
       return this.alert.width ? `width: ${this.alert.width}px` : ''
-    },
-    modal_class() {
-      return `modal-content ${this.alert.class || ''}`
     },
   },
   methods: {
