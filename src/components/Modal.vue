@@ -33,6 +33,10 @@ export default {
     if (this.$attrs.close) {
       console.error('DEPRECATION ERROR: Use @close in modal instead of :close')
     }
+    const buttons = this.$el.querySelectorAll('button')
+    if (buttons.length && this.$el.querySelectorAll(':focus').length === 0) {
+      buttons && buttons[buttons.length - 1].focus()
+    }
   },
 }
 </script>
