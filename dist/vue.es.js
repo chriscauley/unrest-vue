@@ -582,8 +582,8 @@ const _sfc_main$8 = {
 };
 const _hoisted_1$6 = { key: 0 };
 const _hoisted_2$4 = { class: "table" };
-const _hoisted_3$3 = /* @__PURE__ */ createElementVNode("th", null, null, -1);
-const _hoisted_4$3 = /* @__PURE__ */ createElementVNode("i", { class: "fa fa-edit" }, null, -1);
+const _hoisted_3$4 = /* @__PURE__ */ createElementVNode("th", null, null, -1);
+const _hoisted_4$4 = /* @__PURE__ */ createElementVNode("i", { class: "fa fa-edit" }, null, -1);
 function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_breadcrumbs = resolveComponent("breadcrumbs");
   const _component_router_link = resolveComponent("router-link");
@@ -593,7 +593,7 @@ function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
     createElementVNode("table", _hoisted_2$4, [
       createElementVNode("thead", null, [
         createElementVNode("tr", null, [
-          _hoisted_3$3,
+          _hoisted_3$4,
           (openBlock(true), createElementBlock(Fragment, null, renderList($options.columns, (column) => {
             return openBlock(), createElementBlock("th", {
               key: column.name
@@ -612,7 +612,7 @@ function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
                 class: "link"
               }, {
                 default: withCtx(() => [
-                  _hoisted_4$3,
+                  _hoisted_4$4,
                   createTextVNode(" " + toDisplayString(item.id), 1)
                 ]),
                 _: 2
@@ -871,6 +871,8 @@ const _hoisted_2$3 = {
   key: 0,
   class: "dropdown-items"
 };
+const _hoisted_3$3 = { class: "dropdown-item__text" };
+const _hoisted_4$3 = { class: "dropdown-item__after" };
 function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ur_popper = resolveComponent("ur-popper");
   return openBlock(), createElementBlock("div", {
@@ -900,7 +902,8 @@ function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
                       key: 0,
                       class: normalizeClass(`fa fa-${item.icon}`)
                     }, null, 2)) : createCommentVNode("", true),
-                    createTextVNode(" " + toDisplayString(item.text), 1)
+                    createElementVNode("div", _hoisted_3$3, toDisplayString(item.text), 1),
+                    createElementVNode("div", _hoisted_4$3, toDisplayString(item.after), 1)
                   ]),
                   _: 2
                 }, 1040);

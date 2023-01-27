@@ -14,7 +14,8 @@
             :key="item.key"
           >
             <i v-if="item.icon" :class="`fa fa-${item.icon}`" />
-            {{ item.text }}
+            <div class="dropdown-item__text">{{ item.text }}</div>
+            <div class="dropdown-item__after">{{ item.after }}</div>
           </div>
         </div>
       </slot>
