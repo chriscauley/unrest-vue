@@ -943,7 +943,7 @@ const _hoisted_3$2 = {
 };
 const _hoisted_4$2 = { class: "modal-title" };
 const _hoisted_5$2 = { class: "modal-body" };
-const _hoisted_6$1 = {
+const _hoisted_6 = {
   key: 1,
   class: "modal-footer"
 };
@@ -960,7 +960,7 @@ function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
       createElementVNode("div", _hoisted_5$2, [
         renderSlot(_ctx.$slots, "default")
       ]),
-      !$props.hide_actions ? (openBlock(), createElementBlock("div", _hoisted_6$1, [
+      !$props.hide_actions ? (openBlock(), createElementBlock("div", _hoisted_6, [
         renderSlot(_ctx.$slots, "actions", {}, () => [
           createElementVNode("button", {
             class: "btn -secondary",
@@ -3742,7 +3742,8 @@ var Store = (modules) => {
   return store2;
 };
 const TOAST_DELAY = 1e4;
-const LEVELS = ["success", "error", "info", "warn", "todo"];
+const LEVELS = ["success", "error", "info", "warning", "todo"];
+LEVELS.push("warn");
 let TOAST_ID = 0;
 const state = reactive({
   toasts: [],
@@ -3765,6 +3766,15 @@ const addToast = (toast2) => {
   toast2.tagName = toast2.tagName || "div";
   const { delay = TOAST_DELAY } = toast2;
   toast2.id = TOAST_ID++;
+  if (toast2.level === "warn") {
+    console.warn("Toast level 'warn' is deprecated, use 'warning' instead");
+    toast2.level = "warning";
+  }
+  state.toasts.forEach((t) => {
+    if (t.value === toast2.value) {
+      hideToast(t);
+    }
+  });
   state.toasts.push(toast2);
   delay && setTimeout(() => hideToast(toast2), delay);
 };
@@ -3829,11 +3839,7 @@ const _hoisted_3 = {
   class: "modal-title"
 };
 const _hoisted_4 = { class: "modal-body max-w-md w-11/12" };
-const _hoisted_5 = {
-  key: 1,
-  class: "modal-footer"
-};
-const _hoisted_6 = ["onClick"];
+const _hoisted_5 = ["onClick"];
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_unrest_modal = resolveComponent("unrest-modal");
   return openBlock(), createElementBlock(Fragment, null, [
@@ -3866,7 +3872,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
             key: i,
             class: normalizeClass(action.class),
             onClick: action.click
-          }, toDisplayString(action.text), 11, _hoisted_6);
+          }, toDisplayString(action.text), 11, _hoisted_5);
         }), 128))
       ]),
       default: withCtx(() => [
@@ -3888,8 +3894,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                 class: normalizeClass(`fa fa-${$options.alert.icon}`)
               }, null, 2)) : createCommentVNode("", true),
               createTextVNode(" " + toDisplayString($options.alert.text), 1)
-            ]),
-            $options.actions.length ? (openBlock(), createElementBlock("div", _hoisted_5)) : createCommentVNode("", true)
+            ])
           ]),
           _: 1
         }, 8, ["class", "style"]))

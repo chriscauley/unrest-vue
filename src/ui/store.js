@@ -1,7 +1,8 @@
 import { reactive, markRaw } from 'vue'
 
 const TOAST_DELAY = 1e4 // 10s
-const LEVELS = ['success', 'error', 'info', 'warn', 'todo']
+const LEVELS = ['success', 'error', 'info', 'warning', 'todo']
+LEVELS.push('warn') // DEPRECATED
 let TOAST_ID = 0
 
 const state = reactive({
@@ -27,7 +28,17 @@ const addToast = (toast) => {
   toast.tagName = toast.tagName || 'div'
   const { delay = TOAST_DELAY } = toast
   toast.id = TOAST_ID++
+  if (toast.level === 'warn') {
+    console.warn("Toast level 'warn' is deprecated, use 'warning' instead")
+    toast.level = 'warning'
+  }
 
+  state.toasts.forEach(t => {
+    if (t.value === toast.value) {
+      // avoid repeat messages
+      hideToast(t)
+    }
+  })
   state.toasts.push(toast)
   delay && setTimeout(() => hideToast(toast), delay)
 }

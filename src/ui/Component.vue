@@ -17,7 +17,6 @@
         <i :class="`fa fa-${alert.icon}`" v-if="alert.icon && !alert.title" />
         {{ alert.text }}
       </div>
-      <div class="modal-footer" v-if="actions.length"></div>
     </div>
     <template #actions>
       <button v-for="(action, i) in actions" :key="i" :class="action.class" @click="action.click">
