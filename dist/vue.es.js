@@ -786,7 +786,8 @@ const _sfc_main$5 = {
   watch: {
     target: "reset",
     watchme() {
-      this.popper.forceUpdate();
+      var _a;
+      (_a = this.popper) == null ? void 0 : _a.forceUpdate();
     }
   },
   mounted() {
@@ -866,21 +867,23 @@ const _sfc_main$4 = {
     }
   }
 };
-const _hoisted_1$3 = { class: "ur-dropdown__trigger" };
-const _hoisted_2$3 = {
+const _hoisted_1$3 = ["title"];
+const _hoisted_2$3 = { class: "ur-dropdown__trigger" };
+const _hoisted_3$3 = {
   key: 0,
   class: "dropdown-items"
 };
-const _hoisted_3$3 = { class: "dropdown-item__text" };
-const _hoisted_4$3 = { class: "dropdown-item__after" };
+const _hoisted_4$3 = { class: "dropdown-item__text" };
+const _hoisted_5$3 = { class: "dropdown-item__after" };
 function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ur_popper = resolveComponent("ur-popper");
   return openBlock(), createElementBlock("div", {
     onClick: _cache[0] || (_cache[0] = (...args) => _ctx.toggleFocus && _ctx.toggleFocus(...args)),
-    class: "ur-dropdown"
+    class: "ur-dropdown",
+    title: $props.title
   }, [
     renderSlot(_ctx.$slots, "default", {}, () => [
-      createElementVNode("div", _hoisted_1$3, toDisplayString($props.title), 1)
+      createElementVNode("div", _hoisted_2$3, toDisplayString($props.title), 1)
     ]),
     _ctx.focused ? (openBlock(), createBlock(_component_ur_popper, {
       key: 0,
@@ -892,7 +895,7 @@ function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
         renderSlot(_ctx.$slots, "content", {}, () => {
           var _a;
           return [
-            ((_a = $props.items) == null ? void 0 : _a.length) ? (openBlock(), createElementBlock("div", _hoisted_2$3, [
+            ((_a = $props.items) == null ? void 0 : _a.length) ? (openBlock(), createElementBlock("div", _hoisted_3$3, [
               (openBlock(true), createElementBlock(Fragment, null, renderList($options.preppedItems, (item) => {
                 return openBlock(), createBlock(resolveDynamicComponent(item.tagName), mergeProps({ class: "dropdown-item" }, item.attrs, {
                   key: item.key
@@ -902,8 +905,8 @@ function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
                       key: 0,
                       class: normalizeClass(`fa fa-${item.icon}`)
                     }, null, 2)) : createCommentVNode("", true),
-                    createElementVNode("div", _hoisted_3$3, toDisplayString(item.text), 1),
-                    createElementVNode("div", _hoisted_4$3, toDisplayString(item.after), 1)
+                    createElementVNode("div", _hoisted_4$3, toDisplayString(item.text), 1),
+                    createElementVNode("div", _hoisted_5$3, toDisplayString(item.after), 1)
                   ]),
                   _: 2
                 }, 1040);
@@ -914,7 +917,7 @@ function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
       ]),
       _: 3
     }, 8, ["placement", "offset"])) : createCommentVNode("", true)
-  ]);
+  ], 8, _hoisted_1$3);
 }
 var Dropdown = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$4]]);
 const _sfc_main$3 = {
