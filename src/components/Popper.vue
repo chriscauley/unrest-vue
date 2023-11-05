@@ -21,7 +21,7 @@ export default {
   watch: {
     target: 'reset',
     watchme() {
-      this.popper.forceUpdate()
+      this.popper?.forceUpdate()
     },
   },
   mounted() {

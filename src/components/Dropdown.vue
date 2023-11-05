@@ -1,5 +1,5 @@
 <template>
-  <div @click="toggleFocus" class="ur-dropdown">
+  <div @click="toggleFocus" class="ur-dropdown" :title="title">
     <slot>
       <div class="ur-dropdown__trigger">{{ title }}</div>
     </slot>
