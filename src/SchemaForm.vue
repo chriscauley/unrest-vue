@@ -48,11 +48,12 @@ export const prepSchema = (schema) => {
 export default {
   props: {
     form_name: String, // eslint-disable-line
-    success: Function, // TODO remove this in next major version
-    onSuccess: Function,
     onDelete: Function,
     onError: Function,
+    onSuccess: Function,
     prepSchema: Function,
+    prepState: Function,
+    success: Function, // TODO remove this in next major version
   },
   emits: ['success'],
   data() {
@@ -90,6 +91,9 @@ export default {
       }
       this.errors = null
       this.loading = true
+      if (this.prepState) {
+        state = this.prepState(state)
+      }
       return api
         .post(`${this.form_name}/`, state)
         .catch((e) => {
@@ -100,6 +104,8 @@ export default {
           this.loading = false
           if (this.success) {
             this.success?.(result)
+          } else if (this.onSuccess) {
+            this.onSuccess(result)
           } else {
             this.$emit('success', result)
           }

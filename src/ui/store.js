@@ -33,7 +33,7 @@ const addToast = (toast) => {
     toast.level = 'warning'
   }
 
-  state.toasts.forEach(t => {
+  state.toasts.forEach((t) => {
     if (t.value === toast.value) {
       // avoid repeat messages
       hideToast(t)

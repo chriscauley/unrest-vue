@@ -1566,11 +1566,11 @@ const prepSchema = (schema) => {
 const _sfc_main$2 = {
   props: {
     form_name: String,
-    success: Function,
-    onSuccess: Function,
     onDelete: Function,
     onError: Function,
-    prepSchema: Function
+    onSuccess: Function,
+    prepSchema: Function,
+    success: Function
   },
   emits: ["success"],
   data() {
@@ -1609,6 +1609,9 @@ const _sfc_main$2 = {
       }
       this.errors = null;
       this.loading = true;
+      if (this.prepState) {
+        state2 = this.prepState(state2);
+      }
       return api.post(`${this.form_name}/`, state2).catch((e) => {
         this.loading = false;
         throw e;
@@ -1617,6 +1620,8 @@ const _sfc_main$2 = {
         this.loading = false;
         if (this.success) {
           (_a = this.success) == null ? void 0 : _a.call(this, result);
+        } else if (this.onSuccess) {
+          this.onSuccess(result);
         } else {
           this.$emit("success", result);
         }
